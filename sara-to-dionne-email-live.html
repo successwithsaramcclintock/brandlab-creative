@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Everything I Built For You -  Sara to Dionne</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#00AFEF;--orange:#F58634;--black:#222221;--charcoal:#373435;--card:#2b2928;--white:#fff;--gray:#737373;--lg:#A8A8A8;--green:#4ecb71}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,sans-serif;background:#f0eeec;color:var(--black);font-weight:300;line-height:1.7}
+
+/* VIEWER OVERLAY */
+#viewer-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);flex-direction:column}
+#viewer-overlay.open{display:flex}
+#viewer-bar{background:#1a1918;padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.1);flex-shrink:0}
+#viewer-title{font-size:13px;font-weight:700;color:#fff;flex:1}
+#viewer-close{background:#373435;border:1px solid rgba(255,255,255,.15);color:#fff;font-size:16px;width:34px;height:34px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+#viewer-close:hover{background:rgba(245,134,52,.3)}
+#viewer-frame{flex:1;border:none;width:100%;background:#fff}
+
+/* EMAIL WRAPPER */
+.wrap{max-width:680px;margin:40px auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 64px rgba(0,0,0,.14)}
+
+/* TOP BAR */
+.top-bar{height:5px;background:linear-gradient(90deg,var(--blue),var(--orange))}
+
+/* HEADER */
+.hdr{background:var(--black);padding:36px 44px 28px}
+.logo{font-size:20px;font-weight:800;margin-bottom:3px}
+.logo .bl{color:var(--blue)}.logo .or{color:var(--orange)}
+.logo-sub{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gray);margin-bottom:22px}
+.from-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:var(--black);flex-shrink:0}
+.from-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.from-role{font-size:11px;color:var(--gray)}
+.to-line{font-size:12px;color:var(--gray);margin-bottom:3px}
+.to-line strong{color:var(--lg)}
+.date-line{font-size:11px;color:var(--gray)}
+
+/* SUBJECT */
+.subj{background:var(--charcoal);padding:22px 44px}
+.subj-lbl{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:5px}
+.subj-txt{font-size:20px;font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.3px}
+.subj-pre{font-size:12px;color:var(--gray);margin-top:5px;font-style:italic}
+
+/* SECTIONS */
+.sec{padding:38px 44px;border-bottom:1px solid #e8e6e4}
+.sec.dark{background:var(--black)}
+.sec.mid{background:#2c2a29}
+.sec.cream{background:#FAFAF8}
+.sec.bl-tint{background:rgba(0,175,239,.04);border-top:3px solid var(--blue)}
+.sec.or-tint{background:rgba(245,134,52,.04);border-top:3px solid var(--orange)}
+.eyebrow{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.eyebrow.bl{color:var(--blue)}
+.sec-h{font-size:24px;font-weight:800;line-height:1.15;letter-spacing:-.3px;margin-bottom:8px;color:var(--black)}
+.sec-h.wh{color:#fff}
+.sec-h .bl{color:var(--blue)}.sec-h .or{color:var(--orange)}
+.rule{width:36px;height:3px;background:linear-gradient(90deg,var(--orange),var(--blue));border-radius:2px;margin:12px 0 18px}
+.txt{font-size:14px;color:#444;line-height:1.8;margin-bottom:14px}
+.txt.wh{color:#ccc}
+.txt strong{font-weight:700;color:var(--black)}
+.txt.wh strong{color:#fff}
+
+/* OPEN BUTTON -  the key element */
+.open-btn{
+  display:flex;align-items:center;gap:14px;
+  background:var(--card);border-radius:12px;
+  padding:20px 22px;margin-bottom:12px;
+  border:1px solid rgba(255,255,255,.07);
+  cursor:pointer;width:100%;text-align:left;
+  font-family:Montserrat,sans-serif;
+  transition:transform .18s,border-color .2s;
+  border-left:4px solid var(--blue);
+}
+.open-btn.or-left{border-left-color:var(--orange)}
+.open-btn.gr-left{border-left-color:var(--green)}
+.open-btn:hover{transform:translateX(4px);border-color:rgba(0,175,239,.5)}
+.ob-icon{font-size:24px;flex-shrink:0}
+.ob-body{flex:1}
+.ob-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:3px}
+.ob-tag.bl{color:var(--blue)}
+.ob-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:3px}
+.ob-desc{font-size:11px;color:var(--lg);line-height:1.5}
+.ob-arrow{font-size:18px;color:var(--blue);flex-shrink:0;font-weight:700}
+
+/* LIGHT OPEN BUTTON */
+.open-btn-light{
+  display:flex;align-items:center;gap:14px;
+  background:#fff;border-radius:12px;
+  padding:20px 22px;margin-bottom:12px;
+  border:1px solid #ddd;
+  cursor:pointer;width:100%;text-align:left;
+  font-family:Montserrat,sans-serif;
+  transition:transform .18s,border-color .2s,box-shadow .2s;
+  border-left:4px solid var(--blue);
+}
+.open-btn-light.or-left{border-left-color:var(--orange)}
+.open-btn-light:hover{transform:translateX(4px);border-color:var(--blue);box-shadow:0 4px 20px rgba(0,175,239,.15)}
+.ob-tag-light{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:3px}
+.ob-title-light{font-size:14px;font-weight:800;color:var(--black);margin-bottom:3px}
+.ob-desc-light{font-size:11px;color:#666;line-height:1.5}
+
+/* GANTT */
+.gantt{background:var(--black);border-radius:10px;padding:20px;margin:18px 0}
+.gantt-lbl{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.gr{display:grid;grid-template-columns:105px 1fr;gap:6px;align-items:center;margin-bottom:4px}
+.gl{font-size:10px;font-weight:600;color:var(--lg);text-align:right;padding-right:6px}
+.gl.ph{color:var(--orange);font-size:8px;text-transform:uppercase;font-weight:700}
+.gtr{position:relative;height:16px;background:rgba(255,255,255,.03);border-radius:3px}
+.gb{position:absolute;top:1px;height:13px;border-radius:3px;font-size:8px;font-weight:700;display:flex;align-items:center;padding:0 6px;white-space:nowrap}
+.gb.bl{background:rgba(0,175,239,.25);border:1px solid rgba(0,175,239,.5);color:var(--blue)}
+.gb.or{background:rgba(245,134,52,.25);border:1px solid rgba(245,134,52,.5);color:var(--orange)}
+.gb.gr{background:rgba(78,203,113,.2);border:1px solid rgba(78,203,113,.5);color:var(--green)}
+.gb.gy{background:rgba(115,115,115,.2);border:1px solid rgba(115,115,115,.4);color:var(--gray)}
+.gb.pu{background:rgba(192,132,252,.2);border:1px solid rgba(192,132,252,.4);color:#c084fc}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.kpi-c{background:var(--card);border-radius:8px;padding:14px;text-align:center}
+.kpi-n{font-size:22px;font-weight:800;line-height:1;margin-bottom:4px}
+.kpi-n.bl{color:var(--blue)}.kpi-n.or{color:var(--orange)}.kpi-n.gr{color:var(--green)}
+.kpi-l{font-size:8px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--gray)}
+
+/* OKR */
+.okr{background:var(--card);border-radius:8px;padding:14px 16px;margin-bottom:8px}
+.okr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.okr-t{font-size:12px;font-weight:700;color:#fff}
+.okr-tg{font-size:10px;font-weight:700;color:var(--orange)}
+.okr-bar{background:rgba(255,255,255,.07);border-radius:3px;height:5px;margin-bottom:5px}
+.okr-fill{height:100%;border-radius:3px}
+.okr-fill.bl{background:linear-gradient(90deg,var(--blue),rgba(0,175,239,.4))}
+.okr-fill.or{background:linear-gradient(90deg,var(--orange),rgba(245,134,52,.4))}
+.okr-fill.gr{background:linear-gradient(90deg,var(--green),rgba(78,203,113,.4))}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:9px;font-weight:600;padding:2px 7px;border-radius:3px;background:rgba(255,255,255,.06);color:var(--gray)}
+
+/* FUNNEL */
+.funnel{display:flex;align-items:center;margin:18px 0;gap:0;overflow-x:auto;padding:4px 0}
+.fbox{background:var(--card);border-radius:8px;padding:10px 8px;text-align:center;min-width:86px;flex-shrink:0}
+.fbox-icon{font-size:16px;margin-bottom:3px}
+.fbox-lbl{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue)}
+.fbox-lbl.or{color:var(--orange)}.fbox-lbl.gr{color:var(--green)}
+.fbox-name{font-size:10px;font-weight:700;color:#fff;margin-bottom:2px}
+.fbox-sub{font-size:8px;color:var(--gray)}
+.farr{font-size:16px;color:var(--orange);padding:0 4px;flex-shrink:0;padding-bottom:12px}
+
+/* TIMELINE */
+.tl{margin:18px 0}
+.tl-row{display:grid;grid-template-columns:80px 1fr;gap:0;position:relative;margin-bottom:2px}
+.tl-row::before{content:"";position:absolute;left:70px;top:20px;bottom:-4px;width:2px;background:rgba(255,255,255,.07)}
+.tl-row:last-child::before{display:none}
+.tl-dt{text-align:right;padding-right:16px;padding-top:11px}
+.tl-dv{font-size:10px;font-weight:800;color:#fff}
+.tl-ds{font-size:9px;color:var(--gray)}
+.tl-c{border-left:2px solid var(--blue);padding:10px 0 10px 16px;position:relative}
+.tl-c.or{border-left-color:var(--orange)}
+.tl-c.gr{border-left-color:var(--green)}
+.tl-c::before{content:"";position:absolute;left:-6px;top:15px;width:10px;height:10px;border-radius:50%;background:var(--blue);border:2px solid #2c2a29}
+.tl-c.or::before{background:var(--orange)}
+.tl-c.gr::before{background:var(--green)}
+.tl-ct{font-size:12px;font-weight:700;color:#fff;margin-bottom:2px}
+.tl-cd{font-size:11px;color:var(--lg);line-height:1.5}
+.cs{display:inline-block;font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px;margin-top:3px;margin-right:3px}
+.cs.sara{background:rgba(0,175,239,.12);color:var(--blue)}
+.cs.dionne{background:rgba(244,114,182,.12);color:#f472b6}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;border-radius:8px;overflow:hidden;margin:14px 0}
+.stat{background:var(--card);padding:16px 10px;text-align:center}
+.stat-n{font-size:22px;font-weight:800;line-height:1;margin-bottom:3px}
+.stat-n.bl{color:var(--blue)}.stat-n.or{color:var(--orange)}
+.stat-l{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--gray)}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* LETTER */
+.letter{padding:44px 44px;border-top:4px solid var(--orange)}
+.greeting{font-size:19px;font-weight:800;margin-bottom:20px}
+.lp{font-size:14px;color:#333;line-height:1.85;margin-bottom:16px}
+.lp strong{font-weight:700;color:var(--black)}
+.lp em{color:var(--orange);font-style:italic}
+.lh{background:rgba(0,175,239,.06);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:16px 20px;margin:20px 0;font-size:14px;color:#333;line-height:1.75}
+.lh strong{font-weight:700;color:var(--black)}
+.sig-name{font-size:17px;font-weight:800;margin-top:24px;margin-bottom:2px}
+.sig-role{font-size:11px;color:var(--gray)}
+.sig-tag{display:inline-block;margin-top:8px;background:var(--black);color:var(--blue);font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 14px;border-radius:20px}
+
+/* CTA */
+.cta-sec{background:var(--black);padding:40px 44px;text-align:center}
+.cta-ey{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.cta-h{font-size:26px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:8px;letter-spacing:-.3px}
+.cta-h .bl{color:var(--blue)}.cta-h .or{color:var(--orange)}
+.cta-sub{font-size:13px;color:var(--lg);margin-bottom:22px;line-height:1.7;max-width:440px;margin-left:auto;margin-right:auto}
+.cta-sub strong{color:#fff}
+.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.cbtn{display:inline-block;font-family:Montserrat,sans-serif;background:linear-gradient(135deg,var(--blue),#0099d4);color:var(--black);font-size:13px;font-weight:800;padding:13px 28px;border-radius:8px;border:none;cursor:pointer;transition:transform .18s}
+.cbtn:hover{transform:translateY(-2px)}
+.cbtn.or{background:linear-gradient(135deg,var(--orange),#e07528)}
+.pill-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.pill{font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;padding:7px 14px;border-radius:6px;border:none;cursor:pointer;transition:transform .15s}
+.pill:hover{transform:translateY(-1px)}
+.cta-note{font-size:11px;color:var(--gray);margin-top:10px;font-style:italic}
+
+/* FOOTER */
+.footer{background:#1a1918;padding:22px 44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.f-logo{font-size:14px;font-weight:800}
+.f-logo .bl{color:var(--blue)}.f-logo .or{color:var(--orange)}
+.f-right{font-size:11px;color:var(--gray);text-align:right;line-height:1.6}
+.pq{border-left:4px solid var(--orange);padding:16px 20px;margin:18px 0;background:rgba(245,134,52,.04);border-radius:0 8px 8px 0}
+.pq-t{font-size:15px;font-weight:700;font-style:italic;color:var(--black);line-height:1.5;margin-bottom:4px}
+.pq-a{font-size:11px;color:var(--orange);font-weight:600}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<div class="top-bar"></div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+  <div class="logo-sub">Operations Command Center &amp; Proposal Package</div>
+  <div class="from-row">
+    <div class="avatar">S</div>
+    <div><div class="from-name">Sara</div><div class="from-role">Community Director &amp; CMO (Chief Marketing Officer)</div></div>
+  </div>
+  <div class="to-line">To: <strong>Dionne Malush</strong> &nbsp;·&nbsp; BrandLab Creative</div>
+  <div class="date-line">March 2026 &nbsp;·&nbsp; Confidential</div>
+</div>
+
+<!-- SUBJECT -->
+<div class="subj">
+  <div class="subj-lbl">Subject</div>
+  <div class="subj-txt">Dionne -  I built your entire digital ecosystem. Here's everything, ready to review.</div>
+  <div class="subj-pre">The command center, lead magnet, funnel, content kit, and full proposal -  all live, all working, all waiting for your go-ahead.</div>
+</div>
+
+<!-- OPENING -->
+<div class="sec cream">
+  <div class="eyebrow">Where We Are Right Now</div>
+  <h1 class="sec-h">You Have 130+ Assets.<br><span class="bl">I Connected Every Single One.</span></h1>
+  <div class="rule"></div>
+  <p class="txt">Dionne -  <strong>everything in this email already exists and is ready to launch.</strong> I didn't send you a pitch deck. I built the actual thing. Click any button below to open and review each deliverable right here.</p>
+  <div class="pq">
+    <div class="pq-t">"Your brand should work as hard as you do." The system below makes that real -  starting April 6.</div>
+    <div class="pq-a"> -  Sara, building for Dionne</div>
+  </div>
+</div>
+
+<!-- DELIVERABLE 1 -->
+<div class="sec dark">
+  <div class="eyebrow bl">Deliverable 1 of 5</div>
+  <h2 class="sec-h wh">Your Operations <span class="bl">Command Center</span></h2>
+  <div class="rule"></div>
+  <p class="txt wh">Your business HQ -  9 sections in one page: the full proposal, 90-day Gantt roadmap, live dashboard tracking Sara's progress, calendar, Pages Hub showing every web property, and a Content Manager where every piece of content has a full caption, graphic, and one-click copy button.</p>
+
+  <button class="open-btn" onclick="openPage('command','BrandLab Operations Command Center')">
+    <span class="ob-icon">🖥️</span>
+    <div class="ob-body">
+      <div class="ob-tag bl">Click to Open</div>
+      <div class="ob-title">BrandLab Operations Command Center</div>
+      <div class="ob-desc">9 sections · Gantt roadmap · Live dashboard · Content manager with graphics · Calendar · Pages Hub · OKRs &amp; KPIs</div>
+    </div>
+    <span class="ob-arrow">▶</span>
+  </button>
+
+  <div class="gantt">
+    <div class="gantt-lbl">90-Day Build Roadmap -  April 6 → June 28, 2026</div>
+    <div class="gr"><div class="gl ph">PHASE 1</div><div class="gtr"></div></div>
+    <div class="gr"><div class="gl">Kickoff &amp; Access</div><div class="gtr"><div class="gb bl" style="left:0%;width:7%">Wk1</div></div></div>
+    <div class="gr"><div class="gl">GHL + Skool Setup</div><div class="gtr"><div class="gb bl" style="left:7%;width:14%">Weeks 2–3</div></div></div>
+    <div class="gr"><div class="gl">Lead Magnet Live</div><div class="gtr"><div class="gb or" style="left:3%;width:10%">Wks 1–2</div></div></div>
+    <div class="gr"><div class="gl">All 8 Properties</div><div class="gtr"><div class="gb or" style="left:14%;width:30%">Weeks 3–8</div></div></div>
+    <div class="gr"><div class="gl">130+ Assets</div><div class="gtr"><div class="gb gy" style="left:38%;width:14%">Weeks 6–8</div></div></div>
+    <div class="gr"><div class="gl">Dionne Bot</div><div class="gtr"><div class="gb pu" style="left:46%;width:10%">Week 8</div></div></div>
+    <div class="gr"><div class="gl">🚀 Soft Launch</div><div class="gtr"><div class="gb gr" style="left:57%;width:7%">Jun 8</div></div></div>
+    <div class="gr"><div class="gl">Full Ecosystem</div><div class="gtr"><div class="gb gr" style="left:66%;width:9%">Jun 28</div></div></div>
+    <div class="gr"><div class="gl ph">PHASE 2</div><div class="gtr"></div></div>
+    <div class="gr"><div class="gl">Sara Manages All</div><div class="gtr"><div class="gb or" style="left:76%;width:24%">Jul 6 → Ongoing</div></div></div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-c"><div class="kpi-n bl">50+</div><div class="kpi-l">Members Mo.3</div></div>
+    <div class="kpi-c"><div class="kpi-n or">$3K+</div><div class="kpi-l">MRR Mo.3</div></div>
+    <div class="kpi-c"><div class="kpi-n bl">300+</div><div class="kpi-l">Members Mo.12</div></div>
+    <div class="kpi-c"><div class="kpi-n or">$18K+</div><div class="kpi-l">MRR Mo.12</div></div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-c"><div class="kpi-n gr">~2hrs</div><div class="kpi-l">Dionne/Week</div></div>
+    <div class="kpi-c"><div class="kpi-n bl">28</div><div class="kpi-l">KPIs Tracked</div></div>
+    <div class="kpi-c"><div class="kpi-n or">79%+</div><div class="kpi-l">Year 1 ROI</div></div>
+    <div class="kpi-c"><div class="kpi-n gr">95%</div><div class="kpi-l">Ops Dionne Never Touches</div></div>
+  </div>
+  <div class="okr"><div class="okr-top"><span class="okr-t">OKR 1 -  Full ecosystem live in 90 days</span><span class="okr-tg">Jun 28</span></div><div class="okr-bar"><div class="okr-fill bl" style="width:0%"></div></div><div class="chips"><span class="chip">Apr 20 -  GHL Live</span><span class="chip">Jun 8 -  Soft Launch</span><span class="chip">Jun 28 -  Full Launch</span></div></div>
+  <div class="okr"><div class="okr-top"><span class="okr-t">OKR 2 -  Retainer covered by Skool MRR Month 3</span><span class="okr-tg">8 Tier-2 = covered</span></div><div class="okr-bar"><div class="okr-fill or" style="width:0%"></div></div><div class="chips"><span class="chip">Mo.3: $3K+</span><span class="chip">Mo.6: $8K+</span><span class="chip">Mo.12: $18K+</span></div></div>
+  <div class="okr"><div class="okr-top"><span class="okr-t">OKR 4 -  Dionne's time stays ≤ 2 hrs/week, always</span><span class="okr-tg">Protected always</span></div><div class="okr-bar"><div class="okr-fill gr" style="width:0%"></div></div><div class="chips"><span class="chip">Sara runs all ops</span><span class="chip">Agenda sent every Sunday 5pm</span></div></div>
+</div>
+
+<!-- DELIVERABLE 2 -->
+<div class="sec bl-tint">
+  <div class="eyebrow">Deliverable 2 of 5</div>
+  <h2 class="sec-h">The Lead Magnet -  <span class="bl">Built. Branded. Ready.</span></h2>
+  <div class="rule"></div>
+  <p class="txt">A 9-page fully branded PDF -  <strong>"7 AI Prompts That Will Change How You Work This Week"</strong> -  built for real estate agents using your existing assets. Plus a full content launch kit: 3 posts, 7 story days, 3 reel scripts with filming directions, and a 6-email GHL nurture sequence. All copy-ready.</p>
+
+  <button class="open-btn-light" onclick="openPage('freebie','7 AI Prompts for Real Estate Agents -  PDF Freebie')">
+    <span class="ob-icon">📄</span>
+    <div class="ob-body">
+      <div class="ob-tag-light">Open Freebie PDF</div>
+      <div class="ob-title-light">7 AI Prompts for Real Estate Agents</div>
+      <div class="ob-desc-light">9 pages · Fully branded · All 7 prompts with Pro Tips and outcomes · Skool CTA back cover</div>
+    </div>
+    <span style="font-size:18px;color:var(--blue);font-weight:700">▶</span>
+  </button>
+
+  <button class="open-btn-light or-left" onclick="openPage('content','Content Launch Kit -  Full Week of Promotion')">
+    <span class="ob-icon">🚀</span>
+    <div class="ob-body">
+      <div class="ob-tag-light">Open Content Kit</div>
+      <div class="ob-title-light">Content Launch Kit -  Full Week of Promotion</div>
+      <div class="ob-desc-light">3 posts · 7 story days · 3 reel scripts with filming direction · 6-email GHL sequence · All one-click copyable</div>
+    </div>
+    <span style="font-size:18px;color:var(--orange);font-weight:700">▶</span>
+  </button>
+</div>
+
+<!-- DELIVERABLE 3 -->
+<div class="sec or-tint">
+  <div class="eyebrow">Deliverable 3 of 5</div>
+  <h2 class="sec-h">The Lead Magnet Funnel -  <span class="or">Capture. Nurture. Convert.</span></h2>
+  <div class="rule"></div>
+  <p class="txt">The funnel turns a download into a paying Skool member -  automatically. Every contact captured, tagged, and entered into a 6-email nurture sequence converting to your $97/mo tier over 14 days. Thank-you page shows all 3 Skool tiers with your Real Estate Agent.Coach thumbnail and live links.</p>
+
+  <div class="funnel">
+    <div class="fbox"><div class="fbox-icon">📱</div><div class="fbox-lbl">Entry</div><div class="fbox-name">Social</div><div class="fbox-sub">Posts·Reels</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fbox-icon">🏠</div><div class="fbox-lbl">Capture</div><div class="fbox-name">Landing Page</div><div class="fbox-sub">Name+Email→GHL</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fbox-icon">🎁</div><div class="fbox-lbl">Deliver</div><div class="fbox-name">Thank You</div><div class="fbox-sub">PDF+Skool tiers</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fbox-icon">✉️</div><div class="fbox-lbl or">Nurture</div><div class="fbox-name">6 GHL Emails</div><div class="fbox-sub">Day 0→Day 14</div></div>
+    <div class="farr">→</div>
+    <div class="fbox"><div class="fbox-icon">🏆</div><div class="fbox-lbl gr">Convert</div><div class="fbox-name">Skool Member</div><div class="fbox-sub">$5·$97·$297</div></div>
+  </div>
+
+  <div class="two-col">
+    <button class="open-btn-light" onclick="openPage('landing','Lead Magnet Landing Page')">
+      <span class="ob-icon">🌐</span>
+      <div class="ob-body">
+        <div class="ob-tag-light">Open Landing Page</div>
+        <div class="ob-title-light">Lead Magnet Landing Page</div>
+        <div class="ob-desc-light">Opt-in form · 7 prompt previews · Dionne's photo · Credibility stats</div>
+      </div>
+      <span style="font-size:16px;color:var(--blue);font-weight:700">▶</span>
+    </button>
+    <button class="open-btn-light or-left" onclick="openPage('thankyou','Thank You + Skool Tier Selection Page')">
+      <span class="ob-icon">✅</span>
+      <div class="ob-body">
+        <div class="ob-tag-light">Open Thank You Page</div>
+        <div class="ob-title-light">Thank You + Skool Tiers</div>
+        <div class="ob-desc-light">PDF download · Agent.Coach thumbnail · All 3 tiers with live Skool links</div>
+      </div>
+      <span style="font-size:16px;color:var(--orange);font-weight:700">▶</span>
+    </button>
+  </div>
+</div>
+
+<!-- DELIVERABLE 4 -->
+<div class="sec mid">
+  <div class="eyebrow bl">Deliverable 4 of 5</div>
+  <h2 class="sec-h wh">The Full Proposal -  <span class="bl">Investment, Tiers &amp; ROI</span></h2>
+  <div class="rule"></div>
+  <p class="txt wh">Phase 1 ($8K one-time) → Phase 2 ($2,250/mo). All 3 Skool tiers with asset breakdowns. Sara's 40hrs vs Dionne's 2hrs visualized. 4 OKRs · 28 KPIs · ROI 79–538%.</p>
+
+  <button class="open-btn" onclick="openPage('proposal','BrandLab Creative Partnership Proposal')">
+    <span class="ob-icon">📋</span>
+    <div class="ob-body">
+      <div class="ob-tag bl">Open Full Proposal</div>
+      <div class="ob-title">BrandLab Creative Partnership Proposal</div>
+      <div class="ob-desc">Phase 1: $8,000 build · Phase 2: $2,250/mo · Division of labor · OKRs · 28 KPIs · ROI projections</div>
+    </div>
+    <span class="ob-arrow">▶</span>
+  </button>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n or">$8K</div><div class="stat-l">Phase 1 Build</div></div>
+    <div class="stat"><div class="stat-n bl">$2,250</div><div class="stat-l">Monthly Mgmt</div></div>
+    <div class="stat"><div class="stat-n or">79–538%</div><div class="stat-l">Year 1 ROI</div></div>
+    <div class="stat"><div class="stat-n bl">Month 3</div><div class="stat-l">Retainer Pays Itself</div></div>
+  </div>
+</div>
+
+<!-- DELIVERABLE 5 -->
+<div class="sec dark">
+  <div class="eyebrow">Deliverable 5 of 5</div>
+  <h2 class="sec-h wh">What Happens Next -  <span class="or">If You Say Yes This Week</span></h2>
+  <div class="rule"></div>
+  <div class="tl">
+    <div class="tl-row"><div class="tl-dt"><div class="tl-dv">Apr 6</div><div class="tl-ds">Monday</div></div><div class="tl-c"><div class="tl-ct">Engagement starts -  Sara begins immediately</div><div class="tl-cd">Asset audit, GHL setup, Skool structure, lead magnet deployed.</div><span class="cs sara">Sara's work</span></div></div>
+    <div class="tl-row"><div class="tl-dt"><div class="tl-dv">Apr 7</div><div class="tl-ds">Tuesday</div></div><div class="tl-c or"><div class="tl-ct">Kickoff call -  60 min, Dionne attends once</div><div class="tl-cd">Access granted. Direction locked. Last admin task for 8+ weeks.</div><span class="cs dionne">Dionne's 1 task</span></div></div>
+    <div class="tl-row"><div class="tl-dt"><div class="tl-dv">Apr 20</div><div class="tl-ds">Week 2</div></div><div class="tl-c"><div class="tl-ct">GHL + Skool live -  lead capture begins</div><div class="tl-cd">Revenue infrastructure on. First leads enter the funnel.</div><span class="cs sara">Sara milestone</span></div></div>
+    <div class="tl-row"><div class="tl-dt"><div class="tl-dv">Jun 8</div><div class="tl-ds">Week 9</div></div><div class="tl-c or"><div class="tl-ct">🚀 Soft launch -  Dionne's first live session</div><div class="tl-cd">Founding members invited. Dionne leads. Sara handles everything else.</div><span class="cs dionne">Dionne shows up</span><span class="cs sara">Sara handles rest</span></div></div>
+    <div class="tl-row"><div class="tl-dt"><div class="tl-dv">Jun 28</div><div class="tl-ds">Week 12</div></div><div class="tl-c gr"><div class="tl-ct">Full ecosystem live -  all 8 properties public</div><div class="tl-cd">130+ assets deployed. All funnels converting. 28 KPIs tracked.</div><span class="cs sara">Full launch</span></div></div>
+    <div class="tl-row"><div class="tl-dt"><div class="tl-dv">Jul 6+</div><div class="tl-ds">Ongoing</div></div><div class="tl-c or"><div class="tl-ct">Phase 2 -  Sara manages everything</div><div class="tl-cd">Dionne: 2 hrs/week. Live sessions + Monday check-in. Sara runs the rest.</div><span class="cs dionne">Dionne leads</span><span class="cs sara">Sara runs it</span></div></div>
+  </div>
+</div>
+
+<!-- LETTER -->
+<div class="letter">
+  <div class="greeting">Dionne,</div>
+  <p class="lp">I want to be honest with you -  because you deserve honesty more than a sales pitch.</p>
+  <p class="lp">You have built something genuinely remarkable. <strong>37 years of expertise. 130+ assets. A $2.5 billion track record. A podcast. A coaching methodology. 19 custom AI tools built specifically for real estate agents.</strong> A personal brand that could lead three different markets simultaneously.</p>
+  <p class="lp">And right now, almost none of it is working for you while you sleep.</p>
+  <p class="lp">That's not a criticism -  it's an observation. The gap between what you have and what the market can see is enormous. And that gap costs you money every single day.</p>
+  <div class="lh"><strong>I built this entire system before you hired me -  because I wanted you to see it, not just hear about it.</strong> The command center is real. The landing page captures real leads. The funnel delivers the freebie and presents your Skool tiers. The content kit has your posts, stories, reels, and email sequence ready to go. I didn't send you a concept. I sent you the thing itself.</div>
+  <p class="lp">Here's what I know: the agents who figure out AI and build a real system right now will dominate the next five years. <em>You already have everything they're trying to build from scratch.</em> The difference is infrastructure -  someone to connect it, run it, and keep it running without pulling you away from the work only you can do.</p>
+  <p class="lp">That's what I'm offering. <strong>Not a helper. Not a VA. An operator.</strong> Someone who takes everything you've built, deploys it with intention, manages it every single day, and hands you a monthly report showing exactly what it produced.</p>
+  <p class="lp">You show up for two things: your live session on Wednesdays and our 60-minute check-in on Mondays. <em>That's it.</em> Everything else is on me.</p>
+  <div class="lh"><strong>Your 130+ assets are currently generating $0 in recurring revenue.</strong> At conservative -  100 Tier 1, 50 Tier 2, 20 Tier 3 -  that becomes $11,290 every single month. My retainer is covered by just 8 Tier 2 members. Everything above that is yours.</div>
+  <p class="lp">Dionne, you've spent 37 years becoming the most qualified person in the room. <strong>It's time the room knew it.</strong></p>
+  <p class="lp" style="font-style:italic;color:var(--orange);font-weight:500">Let's make your brand work as hard as you do. Starting April 6.</p>
+  <div class="sig-name">Sara</div>
+  <div class="sig-role">Community Director &amp; CMO (Chief Marketing Officer) · BrandLab Creative</div>
+  <div class="sig-tag">✦ Sara runs it. Dionne shines.</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-sec">
+  <div class="cta-ey">Everything Is Built. You Just Have to Say Yes.</div>
+  <h2 class="cta-h">Ready When <span class="bl">You Are,</span> <span class="or">Dionne.</span></h2>
+  <p class="cta-sub">Review everything below. Then let's get on a call this week. <strong>April 6 is the start. June 28 is the launch.</strong></p>
+  <div class="cta-row">
+    <button class="cbtn" onclick="openPage('command','BrandLab Operations Command Center')">🖥️ &nbsp;Open Command Center</button>
+    <button class="cbtn or" onclick="openPage('proposal','BrandLab Creative Partnership Proposal')">📋 &nbsp;Review Full Proposal</button>
+  </div>
+  <div class="pill-row">
+    <button class="pill" style="color:var(--blue);background:rgba(0,175,239,.12);border:1px solid rgba(0,175,239,.25)" onclick="openPage('landing','Lead Magnet Landing Page')">🌐 Landing Page</button>
+    <button class="pill" style="color:var(--orange);background:rgba(245,134,52,.12);border:1px solid rgba(245,134,52,.25)" onclick="openPage('thankyou','Thank You + Skool Tiers')">✅ Thank You Page</button>
+    <button class="pill" style="color:#ccc;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15)" onclick="openPage('freebie','7 AI Prompts PDF')">📄 7 AI Prompts</button>
+    <button class="pill" style="color:var(--green);background:rgba(78,203,113,.12);border:1px solid rgba(78,203,113,.25)" onclick="openPage('content','Content Launch Kit')">🚀 Content Kit</button>
+  </div>
+  <div class="cta-note">Each button opens the live page in a new tab -  no login, no account needed.</div>
+</div>
+
+<div class="footer">
+  <div>
+    <div class="f-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+    <div style="font-size:10px;color:var(--gray);margin-top:3px;font-style:italic">"Your brand should work as hard as you do."</div>
+  </div>
+  <div class="f-right">
+    <strong style="color:#fff;font-size:12px">Sara</strong><br>
+    Community Director &amp; CMO (Chief Marketing Officer)<br>
+    brandlabcreative.com · March 2026
+  </div>
+</div>
+
+</div><!-- end .wrap -->
+
+<script>
+var URLS = {
+  command:  'https://brand-lab-creative.netlify.app/brandlab-command-center.html',
+  proposal: 'https://brand-lab-creative.netlify.app/brandlab-proposal-v2.html',
+  landing:  'https://brand-lab-creative.netlify.app/landing-page.html',
+  thankyou: 'https://brand-lab-creative.netlify.app/thank-you-tiers.html',
+  freebie:  'https://brand-lab-creative.netlify.app/7-ai-prompts-re-agents.html',
+  content:  'https://brand-lab-creative.netlify.app/content-launch-kit.html'
+};
+
+function openPage(key, title) {
+  var url = URLS[key];
+  if (!url) { alert('Page not found: ' + key); return; }
+  window.open(url, '_blank');
+}
+</script>
+</body>
+</html>
