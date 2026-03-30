@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 AI Prompts for Real Estate Agents — Dionne Malush</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #1a1918;
+  color: #222221;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ── PAGE SYSTEM ── */
+.page {
+  width: 8.5in;
+  min-height: 11in;
+  margin: 0 auto 24px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.page:last-child { margin-bottom: 0; }
+
+/* ── BRAND COLORS ── */
+:root {
+  --blue: #00AFEF;
+  --orange: #F58634;
+  --black: #222221;
+  --charcoal: #373435;
+  --gray: #737373;
+  --lg: #A0A0A0;
+  --white: #FFFFFF;
+  --cream: #FAFAF8;
+}
+
+/* ════════════════════════
+   PAGE 1 — COVER
+════════════════════════ */
+.cover {
+  background: #222221;
+  color: var(--white);
+  min-height: 11in;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+.cover-top-bar {
+  background: var(--orange);
+  height: 6px;
+  width: 100%;
+}
+.cover-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.65in 0.75in 0.5in;
+  position: relative;
+  overflow: hidden;
+}
+
+/* BG decorative circles */
+.cover-inner::before {
+  content: '';
+  position: absolute;
+  right: -1.2in;
+  top: -0.8in;
+  width: 5in;
+  height: 5in;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,175,239,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cover-inner::after {
+  content: '';
+  position: absolute;
+  left: -0.8in;
+  bottom: -0.5in;
+  width: 3.5in;
+  height: 3.5in;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,134,52,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cover-logo {
+  font-size: 13pt;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 0.6in;
+}
+.cover-logo .bl { color: var(--blue); }
+.cover-logo .or { color: var(--orange); }
+.cover-logo-sub {
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 3px;
+}
+
+.cover-eyebrow {
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+.cover-num {
+  font-size: 110pt;
+  font-weight: 800;
+  line-height: 0.85;
+  color: var(--blue);
+  letter-spacing: -6px;
+  margin-bottom: 0;
+}
+.cover-headline {
+  font-size: 30pt;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  color: var(--white);
+  margin-bottom: 20px;
+  max-width: 5.5in;
+}
+.cover-headline em {
+  color: var(--orange);
+  font-style: italic;
+}
+.cover-sub {
+  font-size: 12pt;
+  font-weight: 300;
+  color: var(--lg);
+  max-width: 5in;
+  line-height: 1.65;
+  margin-bottom: 0.45in;
+}
+.cover-sub strong { color: var(--white); font-weight: 600; }
+
+.cover-rule {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  border-radius: 2px;
+  margin-bottom: 0.4in;
+}
+
+.cover-cred-row {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 0.5in;
+}
+.cover-cred {
+  display: flex;
+  flex-direction: column;
+}
+.cc-num {
+  font-size: 22pt;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.cc-num.or { color: var(--orange); }
+.cc-label {
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.cover-author {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ca-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--orange));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20pt;
+  font-weight: 800;
+  color: var(--black);
+  flex-shrink: 0;
+}
+.ca-name {
+  font-size: 13pt;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.ca-title {
+  font-size: 8.5pt;
+  color: var(--lg);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.cover-bottom-bar {
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  height: 5px;
+}
+
+/* ════════════════════════
+   PAGE 2 — INTRO / HOW TO USE
+════════════════════════ */
+.intro-page {
+  background: var(--cream);
+  min-height: 11in;
+  display: flex;
+  flex-direction: column;
+}
+.page-header {
+  background: var(--black);
+  padding: 22px 0.7in;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ph-logo {
+  font-size: 11pt;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.ph-logo .bl { color: var(--blue); }
+.ph-logo .or { color: var(--orange); }
+.ph-tag {
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.intro-content {
+  flex: 1;
+  padding: 0.55in 0.75in 0.5in;
+}
+
+.section-eyebrow {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-size: 22pt;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.section-title span { color: var(--blue); }
+.section-rule {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  border-radius: 2px;
+  margin: 12px 0 22px;
+}
+.body-text {
+  font-size: 10.5pt;
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.body-text strong { color: var(--black); font-weight: 700; }
+
+.intro-box {
+  background: var(--black);
+  border-radius: 10px;
+  padding: 26px 28px;
+  margin: 24px 0;
+  color: var(--white);
+}
+.ib-title {
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+.ib-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ib-item {
+  flex: 1;
+  min-width: 1.5in;
+}
+.ib-step-num {
+  font-size: 18pt;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.ib-step-label {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+.ib-step-desc {
+  font-size: 9pt;
+  color: var(--lg);
+  line-height: 1.5;
+}
+
+.dionne-note {
+  background: rgba(0,175,239,0.06);
+  border-left: 4px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 20px;
+  margin-top: 24px;
+}
+.dn-label {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.dn-text {
+  font-size: 10pt;
+  font-style: italic;
+  color: #333;
+  line-height: 1.65;
+}
+.dn-sig {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--orange);
+  margin-top: 8px;
+}
+
+.page-footer {
+  background: var(--charcoal);
+  padding: 12px 0.7in;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+.pf-left {
+  font-size: 8pt;
+  color: var(--gray);
+}
+.pf-right {
+  font-size: 8pt;
+  color: var(--gray);
+}
+.pf-url { color: var(--blue); font-weight: 600; }
+
+/* ════════════════════════
+   PROMPT PAGES
+════════════════════════ */
+.prompt-page {
+  background: var(--white);
+  min-height: 11in;
+  display: flex;
+  flex-direction: column;
+}
+.prompt-page.alt { background: var(--cream); }
+
+.prompt-header {
+  padding: 0.35in 0.75in 0.3in;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.ph-left {}
+.prompt-number {
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 4px;
+}
+.prompt-category {
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.ph-right {
+  text-align: right;
+}
+.ph-right .ph-logo { font-size: 10pt; }
+
+.prompt-body {
+  flex: 1;
+  padding: 0.4in 0.75in 0.3in;
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt-title {
+  font-size: 24pt;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--black);
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+.prompt-title .bl { color: var(--blue); }
+.prompt-title .or { color: var(--orange); }
+
+.prompt-hook {
+  font-size: 11pt;
+  color: #555;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  max-width: 5.8in;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.why-box {
+  background: #f5f5f3;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.why-icon { font-size: 18pt; flex-shrink: 0; margin-top: -2px; }
+.why-content {}
+.why-label {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 4px;
+}
+.why-text {
+  font-size: 10pt;
+  color: #333;
+  line-height: 1.6;
+}
+.why-text strong { color: var(--black); font-weight: 700; }
+
+/* THE PROMPT BOX — hero element */
+.prompt-box {
+  background: var(--black);
+  border-radius: 12px;
+  padding: 26px 28px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.prompt-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--blue), var(--orange));
+}
+.pb-label {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pb-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+.pb-text {
+  font-size: 10.5pt;
+  color: #e8e8e8;
+  line-height: 1.8;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+.pb-text .pb-var {
+  color: var(--orange);
+  font-weight: 700;
+  font-style: italic;
+}
+.pb-text .pb-strong {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.copy-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.copy-hint-icon { font-size: 12pt; }
+.copy-hint-text {
+  font-size: 8.5pt;
+  color: var(--gray);
+  font-style: italic;
+}
+
+/* HOW TO USE STEPS */
+.how-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.how-step {
+  background: #f8f8f6;
+  border-radius: 8px;
+  padding: 14px 16px;
+  border-top: 3px solid var(--blue);
+}
+.how-step.or-top { border-top-color: var(--orange); }
+.how-step.gr-top { border-top-color: #4ecb71; }
+.hs-num {
+  font-size: 16pt;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.hs-num.or { color: var(--orange); }
+.hs-num.gr { color: #4ecb71; }
+.hs-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 3px;
+}
+.hs-desc {
+  font-size: 8.5pt;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* OUTCOME */
+.outcome-strip {
+  background: linear-gradient(135deg, rgba(0,175,239,0.07), rgba(245,134,52,0.05));
+  border: 1px solid rgba(0,175,239,0.2);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: auto;
+}
+.os-icon { font-size: 16pt; flex-shrink: 0; margin-top: -1px; }
+.os-content {}
+.os-label {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 3px;
+}
+.os-text {
+  font-size: 10pt;
+  color: #333;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* PRO TIP */
+.pro-tip {
+  background: rgba(245,134,52,0.06);
+  border-left: 3px solid var(--orange);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+.pt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 4px;
+}
+.pt-text {
+  font-size: 9.5pt;
+  color: #444;
+  line-height: 1.55;
+}
+.pt-text strong { color: var(--black); font-weight: 700; }
+
+/* PROMPT PAGE ACCENT LINE */
+.prompt-accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+}
+
+/* ════════════════════════
+   PAGE 9 — BACK / CTA
+════════════════════════ */
+.cta-page {
+  background: var(--black);
+  color: var(--white);
+  min-height: 11in;
+  display: flex;
+  flex-direction: column;
+}
+.cta-top-bar {
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+  height: 5px;
+}
+.cta-inner {
+  flex: 1;
+  padding: 0.65in 0.75in;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.cta-inner::before {
+  content: '';
+  position: absolute;
+  right: -1in;
+  top: -1in;
+  width: 5in;
+  height: 5in;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,175,239,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cta-eyebrow {
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.cta-title {
+  font-size: 30pt;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.cta-title .bl { color: var(--blue); }
+.cta-title .or { color: var(--orange); }
+.cta-sub {
+  font-size: 12pt;
+  color: var(--lg);
+  font-weight: 300;
+  max-width: 5.5in;
+  line-height: 1.65;
+  margin-bottom: 0.4in;
+}
+.cta-sub strong { color: var(--white); font-weight: 600; }
+.cta-rule {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  border-radius: 2px;
+  margin-bottom: 0.4in;
+}
+
+.tiers-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 0.4in;
+}
+.tp-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 18px 16px;
+  border-top: 3px solid var(--gray);
+}
+.tp-card.blue-t { border-top-color: var(--blue); }
+.tp-card.orange-t { border-top-color: var(--orange); }
+.tp-tier {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.tp-tier.gray { color: var(--gray); }
+.tp-tier.blue { color: var(--blue); }
+.tp-tier.orange { color: var(--orange); }
+.tp-name {
+  font-size: 12pt;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+.tp-price {
+  font-size: 22pt;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.tp-price.gray { color: var(--lg); }
+.tp-price.blue { color: var(--blue); }
+.tp-price.orange { color: var(--orange); }
+.tp-mo { font-size: 8.5pt; color: var(--gray); margin-bottom: 10px; }
+.tp-items { display: flex; flex-direction: column; gap: 4px; }
+.tp-item { font-size: 8.5pt; color: #ccc; display: flex; gap: 6px; align-items: flex-start; }
+.tp-item::before { content: '✓'; color: var(--blue); font-weight: 800; flex-shrink: 0; }
+.tp-card.orange-t .tp-item::before { color: var(--orange); }
+
+.cta-action-box {
+  background: rgba(0,175,239,0.08);
+  border: 1px solid rgba(0,175,239,0.25);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 0.35in;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.cab-icon { font-size: 32pt; flex-shrink: 0; }
+.cab-content {}
+.cab-label {
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 5px;
+}
+.cab-headline {
+  font-size: 15pt;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+.cab-url {
+  font-size: 14pt;
+  font-weight: 800;
+  color: var(--orange);
+  letter-spacing: 0.5px;
+}
+
+.cta-footer-row {
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cfr-left {}
+.cfr-logo {
+  font-size: 14pt;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.cfr-logo .bl { color: var(--blue); }
+.cfr-logo .or { color: var(--orange); }
+.cfr-tagline {
+  font-size: 9pt;
+  color: var(--gray);
+  font-style: italic;
+}
+.cfr-right {
+  text-align: right;
+  font-size: 8.5pt;
+  color: var(--gray);
+  line-height: 1.6;
+}
+.cfr-right strong { color: var(--white); display: block; font-weight: 700; font-size: 9.5pt; }
+
+/* ── PRINT ── */
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; page-break-after: always; }
+  .page:last-child { page-break-after: avoid; }
+}
+
+/* ── SCREEN CHROME ── */
+@media screen {
+  body { padding: 40px 20px; }
+  .page {
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    border-radius: 4px;
+  }
+  .print-hint {
+    text-align: center;
+    padding: 16px;
+    font-size: 11pt;
+    color: #888;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+  }
+  .print-hint strong { color: #00AFEF; }
+}
+</style>
+</head>
+<body>
+
+<div class="print-hint">
+  <strong>To save as PDF:</strong> File → Print → Save as PDF &nbsp;·&nbsp; Set margins to None &nbsp;·&nbsp; Enable Background Graphics
+</div>
+
+<!-- ════════════════════════════════════
+     PAGE 1 — COVER
+════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-top-bar"></div>
+  <div class="cover-inner">
+    <div>
+      <div class="cover-logo">
+        <span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE
+        <div class="cover-logo-sub">C R E A T I V E &nbsp; · &nbsp; AI POWERED BRANDING</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="cover-eyebrow">Free Resource for Real Estate Agents</div>
+      <div class="cover-num">7</div>
+      <h1 class="cover-headline">
+        AI Prompts That Will Change How You Work <em style="white-space:nowrap">This Week</em>
+      </h1>
+      <p class="cover-sub">
+        Stop losing listings to agents who have already figured out AI.<br>
+        <strong>These 7 prompts are plug-and-play — copy, paste, and close more deals.</strong><br>
+        No tech skills needed. No fluff. Just results.
+      </p>
+    </div>
+
+    <div class="cover-rule"></div>
+
+    <div class="cover-cred-row">
+      <div class="cover-cred">
+        <div class="cc-num">$2.5B+</div>
+        <div class="cc-label">Real Estate<br>Sales Built</div>
+      </div>
+      <div class="cover-cred">
+        <div class="cc-num or">200+</div>
+        <div class="cc-label">Agents Led &<br>Mentored</div>
+      </div>
+      <div class="cover-cred">
+        <div class="cc-num">37+</div>
+        <div class="cc-label">Years of<br>Experience</div>
+      </div>
+      <div class="cover-cred">
+        <div class="cc-num or">1,000+</div>
+        <div class="cc-label">Homes Sold<br>Personally</div>
+      </div>
+    </div>
+
+    <div class="cover-author">
+      <div class="ca-avatar">DM</div>
+      <div>
+        <div class="ca-name">Dionne Malush</div>
+        <div class="ca-title">Creative AI Strategist · Brokerage Owner · StoryBrand Certified Guide<br>Napoleon Hill Coach · Host, Shine on Success Podcast</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-bottom-bar"></div>
+</div>
+
+<!-- ════════════════════════════════════
+     PAGE 2 — INTRO
+════════════════════════════════════ -->
+<div class="page intro-page">
+  <div class="page-header">
+    <div class="ph-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+    <div class="ph-tag">7 AI Prompts for Real Estate Agents</div>
+  </div>
+  <div class="intro-content">
+    <div class="section-eyebrow">Before You Dive In</div>
+    <h2 class="section-title">The Agent Who Uses <span>AI First</span><br>Wins. Every Time.</h2>
+    <div class="section-rule"></div>
+
+    <p class="body-text">
+      In my 37 years in real estate — personally selling 1,000+ homes and helping 200+ agents build businesses that actually work — I've never seen a tool create this much of an unfair advantage this fast.
+    </p>
+    <p class="body-text">
+      Agents who use AI effectively are writing better listing descriptions in 3 minutes. They're sending follow-up emails that sound personal at scale. They're walking into every listing appointment more prepared than the competition.
+    </p>
+    <p class="body-text">
+      <strong>Agents who don't are getting left behind — right now, not eventually.</strong>
+    </p>
+    <p class="body-text">
+      These 7 prompts are what I give to the agents I coach. They're practical, specific, and designed to deliver results in your first sitting. No AI experience required. Just copy the prompt, swap in your details, and use it.
+    </p>
+
+    <div class="intro-box">
+      <div class="ib-title">How to Get the Most from This Guide</div>
+      <div class="ib-row">
+        <div class="ib-item">
+          <div class="ib-step-num">01</div>
+          <div class="ib-step-label">Pick Your Prompt</div>
+          <div class="ib-step-desc">Start with the one that fits your biggest challenge right now. Don't read the whole guide first — use it.</div>
+        </div>
+        <div class="ib-item">
+          <div class="ib-step-num">02</div>
+          <div class="ib-step-label">Customize the Variables</div>
+          <div class="ib-step-desc">Every prompt has <span style="color:var(--orange);font-weight:700;">[bracketed variables]</span> — swap those in with your real details. Specificity = better output.</div>
+        </div>
+        <div class="ib-item">
+          <div class="ib-step-num">03</div>
+          <div class="ib-step-label">Paste into ChatGPT</div>
+          <div class="ib-step-desc">Use ChatGPT (free or Plus), Claude, or any AI tool. Read the result. Refine if needed. Done in under 3 minutes.</div>
+        </div>
+        <div class="ib-item">
+          <div class="ib-step-num">04</div>
+          <div class="ib-step-label">Save What Works</div>
+          <div class="ib-step-desc">Keep a swipe file of your best outputs. These become your templates — they improve every time you use them.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dionne-note">
+      <div class="dn-label">A Note from Dionne</div>
+      <p class="dn-text">"These prompts are the starting point — not the ceiling. The agents getting the best results are the ones combining these with a strong personal brand and a consistent system. That's exactly what we build together in the Gold Standard community. But first: use these. Get a win. Then come find us."</p>
+      <div class="dn-sig">— Dionne Malush · brandlabcreative.com</div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-left">© 2026 BrandLab Creative · Dionne Malush</div>
+    <div class="pf-right"><span class="pf-url">brandlabcreative.com</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PROMPT 1 — LISTING DESCRIPTIONS
+════════════════════════════════════ -->
+<div class="page prompt-page">
+  <div class="prompt-accent"></div>
+  <div class="prompt-header">
+    <div class="ph-left">
+      <div class="prompt-number">Prompt #1 of 7</div>
+      <div class="prompt-category">Listings &amp; Marketing</div>
+    </div>
+    <div class="ph-right">
+      <div class="ph-logo"><span class="bl">BRAND</span><span class="or">LAB</span></div>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <h2 class="prompt-title">Write a Listing Description<br>That <span class="bl">Actually Sells</span> the Home</h2>
+    <p class="prompt-hook">Most listing descriptions read like a spec sheet. Buyers don't buy specs — they buy the feeling of living there. This prompt writes the story that sells.</p>
+
+    <div class="why-box">
+      <div class="why-icon">🏠</div>
+      <div class="why-content">
+        <div class="why-label">Why This Matters</div>
+        <div class="why-text">Your listing description is often the first impression before a showing is ever scheduled. <strong>A compelling description increases showing requests and justifies the price before a buyer walks through the door.</strong> Most agents spend 10 minutes on this. You'll spend 3 — and get a better result.</div>
+      </div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="pb-label">Copy This Prompt →</div>
+      <div class="pb-text">
+        You are an expert real estate copywriter who specializes in writing emotionally compelling listing descriptions that generate showing requests and attract serious buyers.<br><br>
+        Write a listing description for a home with these details:<br>
+        - <span class="pb-var">[Bedrooms]</span> bed / <span class="pb-var">[Bathrooms]</span> bath · <span class="pb-var">[Square footage]</span> sq ft<br>
+        - Location: <span class="pb-var">[City/Neighborhood]</span><br>
+        - Top 5 features: <span class="pb-var">[List your best features here]</span><br>
+        - Target buyer: <span class="pb-var">[e.g., young family, downsizer, investor]</span><br>
+        - Asking price: <span class="pb-var">[$XXX,XXX]</span><br><br>
+        Write three versions: <span class="pb-strong">(1) Short — 75 words for MLS</span>, <span class="pb-strong">(2) Medium — 150 words for Zillow/Realtor.com</span>, <span class="pb-strong">(3) Long — 250 words for the property website</span>. Lead each version with an emotional hook, not a feature list. Use present tense. Make the buyer feel like they're already living there.
+      </div>
+    </div>
+
+    <div class="how-row">
+      <div class="how-step">
+        <div class="hs-num">3</div>
+        <div class="hs-title">Minutes to Use</div>
+        <div class="hs-desc">Paste, swap your details, get 3 versions instantly</div>
+      </div>
+      <div class="how-step or-top">
+        <div class="hs-num or">3</div>
+        <div class="hs-title">Versions Generated</div>
+        <div class="hs-desc">MLS, Zillow/Realtor, and full website copy in one shot</div>
+      </div>
+      <div class="how-step gr-top">
+        <div class="hs-num gr">↑</div>
+        <div class="hs-title">Outcome</div>
+        <div class="hs-desc">More showings, faster offers, price-justified marketing</div>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <div class="pt-label">Pro Tip from Dionne</div>
+      <div class="pt-text">After you get the output, ask the AI: <strong>"Now rewrite the hook using the #1 emotional benefit for a [target buyer type]."</strong> The second version is almost always better than the first.</div>
+    </div>
+
+    <div class="outcome-strip">
+      <div class="os-icon">🎯</div>
+      <div class="os-content">
+        <div class="os-label">What This Gets You</div>
+        <div class="os-text">A professional, emotionally compelling listing description in under 5 minutes — ready for MLS, Zillow, and your property site — without hiring a copywriter.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-left">Prompt #1 — Listing Descriptions · © 2026 BrandLab Creative</div>
+    <div class="pf-right"><span class="pf-url">brandlabcreative.com</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PROMPT 2 — OBJECTION HANDLING
+════════════════════════════════════ -->
+<div class="page prompt-page alt">
+  <div class="prompt-accent"></div>
+  <div class="prompt-header">
+    <div class="ph-left">
+      <div class="prompt-number">Prompt #2 of 7</div>
+      <div class="prompt-category">Scripts &amp; Objections</div>
+    </div>
+    <div class="ph-right">
+      <div class="ph-logo"><span class="bl">BRAND</span><span class="or">LAB</span></div>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <h2 class="prompt-title">Handle Any Objection<br><span class="or">Confidently</span> — Every Time</h2>
+    <p class="prompt-hook">"I want to wait until the market improves." "Your commission is too high." "I need to talk to my spouse first." Sound familiar? This prompt prepares you for every one of them.</p>
+
+    <div class="why-box">
+      <div class="why-icon">💬</div>
+      <div class="why-content">
+        <div class="why-label">Why This Matters</div>
+        <div class="why-text">The difference between agents who close consistently and those who don't often comes down to one thing: <strong>what they say when a prospect pushes back.</strong> Most agents freeze or default to discounting. This prompt gives you three professional, honest responses to any objection — instantly.</div>
+      </div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="pb-label">Copy This Prompt →</div>
+      <div class="pb-text">
+        You are a real estate sales coach with 30+ years of experience training top-producing agents. A prospect just said:<br><br>
+        <span class="pb-strong">"[Paste the exact objection here]"</span><br><br>
+        I am a real estate agent at <span class="pb-var">[Your Brokerage Name]</span> in <span class="pb-var">[City/Market]</span>. My average days on market is <span class="pb-var">[X days]</span> and my list-to-sale ratio is <span class="pb-var">[X%]</span>.<br><br>
+        Give me <span class="pb-strong">3 different responses</span> to this objection: (1) a <span class="pb-strong">direct and confident</span> response, (2) an <span class="pb-strong">empathetic, curiosity-based</span> response, and (3) a <span class="pb-strong">story-based</span> response using a past client situation. Each response should be 3–5 sentences, conversational, non-pushy, and rooted in the client's best interest — not a commission close.
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <div class="pt-label">Pro Tip from Dionne</div>
+      <div class="pt-text">Run this prompt for your top 5 most common objections <strong>before your next listing appointment.</strong> Print them out. Read them twice. You'll walk in prepared for anything they throw at you — and your confidence will show.</div>
+    </div>
+
+    <div class="outcome-strip">
+      <div class="os-icon">🏆</div>
+      <div class="os-content">
+        <div class="os-label">What This Gets You</div>
+        <div class="os-text">Three professionally crafted, honest objection responses for any pushback — ready before every appointment so you never freeze or stumble in the moment.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-left">Prompt #2 — Objection Handling · © 2026 BrandLab Creative</div>
+    <div class="pf-right"><span class="pf-url">brandlabcreative.com</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PROMPT 3 — SOCIAL MEDIA CONTENT
+════════════════════════════════════ -->
+<div class="page prompt-page">
+  <div class="prompt-accent"></div>
+  <div class="prompt-header">
+    <div class="ph-left">
+      <div class="prompt-number">Prompt #3 of 7</div>
+      <div class="prompt-category">Social Media &amp; Content</div>
+    </div>
+    <div class="ph-right">
+      <div class="ph-logo"><span class="bl">BRAND</span><span class="or">LAB</span></div>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <h2 class="prompt-title">A Week of Social Content<br>in <span class="bl">Under 10 Minutes</span></h2>
+    <p class="prompt-hook">Consistency is what builds trust on social. Most agents post when they remember. This prompt gives you a full week of on-brand, value-forward content in one sitting.</p>
+
+    <div class="why-box">
+      <div class="why-icon">📱</div>
+      <div class="why-content">
+        <div class="why-label">Why This Matters</div>
+        <div class="why-text">Agents who post consistently are the ones people think of when they're ready to buy or sell. <strong>You don't need to go viral — you need to stay visible.</strong> A week of content in 10 minutes means no more blank-page paralysis or skipping posting because you're busy.</div>
+      </div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="pb-label">Copy This Prompt →</div>
+      <div class="pb-text">
+        You are a social media strategist specializing in personal branding for real estate agents. Create a <span class="pb-strong">7-day content calendar</span> for a real estate agent with this profile:<br><br>
+        - Name: <span class="pb-var">[Your Name]</span> · Market: <span class="pb-var">[City/Neighborhood]</span><br>
+        - Specialty: <span class="pb-var">[e.g., first-time buyers, luxury, investors, relocation]</span><br>
+        - Personality: <span class="pb-var">[e.g., direct and no-nonsense / warm and community-focused / educational and data-driven]</span><br>
+        - Current focus: <span class="pb-var">[e.g., getting listings / building my buyer pipeline / growing my referral network]</span><br><br>
+        For each day, provide: the <span class="pb-strong">post type</span> (tip, story, market update, behind-the-scenes, testimonial, question, or educational), the <span class="pb-strong">full caption</span> with hashtags for Instagram/Facebook, and a <span class="pb-strong">LinkedIn version</span> (more professional tone). Every post should position me as the local expert — never generic, always specific to my market.
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <div class="pt-label">Pro Tip from Dionne</div>
+      <div class="pt-text">After you get the week of content, ask: <strong>"Now give me 5 story-style posts based on real client situations without using client names."</strong> Those perform 3× better than any market update.</div>
+    </div>
+
+    <div class="outcome-strip">
+      <div class="os-icon">📣</div>
+      <div class="os-content">
+        <div class="os-label">What This Gets You</div>
+        <div class="os-text">A full 7-day content calendar with captions for Instagram, Facebook, and LinkedIn — written in your voice and specific to your market. Done in one sitting.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-left">Prompt #3 — Social Media Content · © 2026 BrandLab Creative</div>
+    <div class="pf-right"><span class="pf-url">brandlabcreative.com</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PROMPT 4 — BUYER CONSULTATION PREP
+════════════════════════════════════ -->
+<div class="page prompt-page alt">
+  <div class="prompt-accent"></div>
+  <div class="prompt-header">
+    <div class="ph-left">
+      <div class="prompt-number">Prompt #4 of 7</div>
+      <div class="prompt-category">Buyer Consultations</div>
+    </div>
+    <div class="ph-right">
+      <div class="ph-logo"><span class="bl">BRAND</span><span class="or">LAB</span></div>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <h2 class="prompt-title">Walk Into Every Buyer Consultation<br><span class="or">Fully Prepared</span></h2>
+    <p class="prompt-hook">A great consultation doesn't happen by showing up and winging it. This prompt builds you a custom preparation sheet for every buyer meeting — in 4 minutes flat.</p>
+
+    <div class="why-box">
+      <div class="why-icon">🤝</div>
+      <div class="why-content">
+        <div class="why-label">Why This Matters</div>
+        <div class="why-text">Buyers choose their agent in the first meeting — often in the first 10 minutes. <strong>Walking in with specific market knowledge, pre-prepared questions, and a clear value proposition separates you from every agent who just shows homes.</strong> This prompt makes you that agent every time.</div>
+      </div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="pb-label">Copy This Prompt →</div>
+      <div class="pb-text">
+        You are a real estate consultant coach. Prepare me for a buyer consultation meeting with a prospect who has the following profile:<br><br>
+        - Budget: <span class="pb-var">[$XXX,XXX – $XXX,XXX]</span><br>
+        - Timeline: <span class="pb-var">[e.g., 60–90 days]</span><br>
+        - Looking in: <span class="pb-var">[Neighborhood/City]</span><br>
+        - Situation: <span class="pb-var">[e.g., first-time buyer, relocating from out of state, upsizing from a condo]</span><br>
+        - How they found me: <span class="pb-var">[e.g., referral from John Smith, saw my Instagram, open house]</span><br><br>
+        Provide: (1) <span class="pb-strong">5 discovery questions</span> to ask early to understand their real motivation, (2) <span class="pb-strong">3 potential concerns</span> this type of buyer typically has and how to address them, (3) a <span class="pb-strong">clear value proposition script</span> (90 seconds) explaining why working with me exclusively is in their best interest, and (4) <span class="pb-strong">3 current market facts</span> I should know for this buyer's search criteria to demonstrate local expertise.
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <div class="pt-label">Pro Tip from Dionne</div>
+      <div class="pt-text">Run this prompt the night before every consultation. <strong>Print the output and review it in your car for 5 minutes before you walk in.</strong> The confidence that comes from being prepared is something buyers can feel — and it's why they sign with you.</div>
+    </div>
+
+    <div class="outcome-strip">
+      <div class="os-icon">✅</div>
+      <div class="os-content">
+        <div class="os-label">What This Gets You</div>
+        <div class="os-text">A custom consultation prep sheet with targeted discovery questions, objection prep, a 90-second value pitch, and market facts — specific to each buyer — in under 5 minutes.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-left">Prompt #4 — Buyer Consultation Prep · © 2026 BrandLab Creative</div>
+    <div class="pf-right"><span class="pf-url">brandlabcreative.com</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PROMPT 5 — DATABASE FOLLOW-UP
+════════════════════════════════════ -->
+<div class="page prompt-page">
+  <div class="prompt-accent"></div>
+  <div class="prompt-header">
+    <div class="ph-left">
+      <div class="prompt-number">Prompt #5 of 7</div>
+      <div class="prompt-category">Database &amp; Sphere of Influence</div>
+    </div>
+    <div class="ph-right">
+      <div class="ph-logo"><span class="bl">BRAND</span><span class="or">LAB</span></div>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <h2 class="prompt-title">Re-Activate Your Database<br><span class="bl">Without Being Annoying</span></h2>
+    <p class="prompt-hook">Your database is your most valuable asset — and most agents barely touch it. This prompt writes personal, non-salesy re-engagement messages that actually get replies.</p>
+
+    <div class="why-box">
+      <div class="why-icon">📋</div>
+      <div class="why-content">
+        <div class="why-label">Why This Matters</div>
+        <div class="why-text">The agents who consistently earn referrals are not the ones who are the "best" agents — <strong>they're the ones who stay top of mind without being annoying about it.</strong> One personal message to your database this week could generate a listing appointment this month. This prompt writes it for you.</div>
+      </div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="pb-label">Copy This Prompt →</div>
+      <div class="pb-text">
+        You are a relationship marketing expert specializing in real estate. Write a <span class="pb-strong">personal re-engagement message</span> for a past client or sphere contact with this context:<br><br>
+        - Contact name: <span class="pb-var">[First Name]</span><br>
+        - How I know them: <span class="pb-var">[e.g., helped them buy their home 3 years ago / neighborhood friend / former colleague]</span><br>
+        - Last time we spoke: <span class="pb-var">[e.g., roughly 18 months ago / at a holiday party / after their closing]</span><br>
+        - Something personal I remember: <span class="pb-var">[e.g., they have two kids, love hiking, just retired]</span><br>
+        - My goal: <span class="pb-var">[e.g., stay top of mind / offer a home value update / reconnect naturally]</span><br><br>
+        Write: (1) a <span class="pb-strong">text message</span> (under 160 characters, warm and human), (2) an <span class="pb-strong">email</span> (3–4 sentences, no sales language, genuine curiosity), and (3) a <span class="pb-strong">voicemail script</span> (30 seconds, conversational). None of them should feel like a marketing message. They should feel like a friend checking in.
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <div class="pt-label">Pro Tip from Dionne</div>
+      <div class="pt-text">Run this for 5 contacts every Monday morning. <strong>That's 20 touches per month to your database with zero extra effort.</strong> In 90 days, you'll see the referrals come back. I promise — your database never forgets an agent who stayed in touch.</div>
+    </div>
+
+    <div class="outcome-strip">
+      <div class="os-icon">💌</div>
+      <div class="os-content">
+        <div class="os-label">What This Gets You</div>
+        <div class="os-text">A personalized text, email, and voicemail script for each database contact — written to feel human, not like a drip campaign — so your sphere remembers you when someone asks for an agent recommendation.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-left">Prompt #5 — Database Reactivation · © 2026 BrandLab Creative</div>
+    <div class="pf-right"><span class="pf-url">brandlabcreative.com</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PROMPT 6 — PRICE REDUCTION CONVO
+════════════════════════════════════ -->
+<div class="page prompt-page alt">
+  <div class="prompt-accent"></div>
+  <div class="prompt-header">
+    <div class="ph-left">
+      <div class="prompt-number">Prompt #6 of 7</div>
+      <div class="prompt-category">Pricing Strategy</div>
+    </div>
+    <div class="ph-right">
+      <div class="ph-logo"><span class="bl">BRAND</span><span class="or">LAB</span></div>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <h2 class="prompt-title">Have the Price Reduction Conversation<br>Without <span class="or">Losing the Listing</span></h2>
+    <p class="prompt-hook">This is the conversation most agents dread. Handled well, it deepens trust. Handled poorly, it costs you the listing. This prompt prepares you for both outcomes.</p>
+
+    <div class="why-box">
+      <div class="why-icon">📉</div>
+      <div class="why-content">
+        <div class="why-label">Why This Matters</div>
+        <div class="why-text">Overpriced listings sit. Sitting listings get stigmatized. Stigmatized listings either expire or sell for less than they would have if priced correctly from day one. <strong>The ability to have an honest pricing conversation — with data, empathy, and confidence — is one of the highest-value skills in real estate.</strong></div>
+      </div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="pb-label">Copy This Prompt →</div>
+      <div class="pb-text">
+        You are a real estate pricing expert and client communication coach. I need to have a price reduction conversation with a seller. Here is the situation:<br><br>
+        - Property: <span class="pb-var">[Address/Type]</span> listed at <span class="pb-var">[$XXX,XXX]</span><br>
+        - Days on market: <span class="pb-var">[X days]</span><br>
+        - Showings: <span class="pb-var">[X showings, X feedback received]</span><br>
+        - Feedback themes: <span class="pb-var">[e.g., "price too high for the updates," "location concern," "compared to X address"]</span><br>
+        - Comparable sold prices: <span class="pb-var">[Recent comps in the area]</span><br>
+        - Seller's emotional state: <span class="pb-var">[e.g., anxious, defensive, motivated, unrealistic]</span><br><br>
+        Provide: (1) a <span class="pb-strong">data presentation script</span> using the showing and comp data to frame the conversation, (2) an <span class="pb-strong">empathy bridge</span> — words to acknowledge their feelings without validating an overpriced mindset, and (3) a <span class="pb-strong">specific recommendation script</span> with the new price and the logic behind it that makes the case without being adversarial.
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <div class="pt-label">Pro Tip from Dionne</div>
+      <div class="pt-text">The best version of this conversation starts with: <strong>"The market is giving us feedback — and I want us to respond to it together."</strong> You are not the bad news. The market is. Let AI help you say it right.</div>
+    </div>
+
+    <div class="outcome-strip">
+      <div class="os-icon">📊</div>
+      <div class="os-content">
+        <div class="os-label">What This Gets You</div>
+        <div class="os-text">A data-backed, empathy-led price reduction script tailored to your specific seller situation — so you walk in confident, not dreading the call.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-left">Prompt #6 — Price Reduction · © 2026 BrandLab Creative</div>
+    <div class="pf-right"><span class="pf-url">brandlabcreative.com</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PROMPT 7 — OPEN HOUSE FOLLOW-UP
+════════════════════════════════════ -->
+<div class="page prompt-page">
+  <div class="prompt-accent"></div>
+  <div class="prompt-header">
+    <div class="ph-left">
+      <div class="prompt-number">Prompt #7 of 7</div>
+      <div class="prompt-category">Lead Conversion</div>
+    </div>
+    <div class="ph-right">
+      <div class="ph-logo"><span class="bl">BRAND</span><span class="or">LAB</span></div>
+    </div>
+  </div>
+  <div class="prompt-body">
+    <h2 class="prompt-title">Turn Open House Visitors into<br><span class="bl">Clients Within 48 Hours</span></h2>
+    <p class="prompt-hook">You collected their names. Most agents send a generic "thanks for coming." This prompt turns every open house visitor into a personalized, timed follow-up sequence that converts.</p>
+
+    <div class="why-box">
+      <div class="why-icon">🏡</div>
+      <div class="why-content">
+        <div class="why-label">Why This Matters</div>
+        <div class="why-text">Open houses are one of the highest-leverage lead generation activities in real estate — and most agents leave 90% of those leads on the table with a weak follow-up. <strong>Speed, personalization, and a clear next step are what separate the agents who convert from those who just host.</strong></div>
+      </div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="pb-label">Copy This Prompt →</div>
+      <div class="pb-text">
+        You are a real estate lead conversion specialist. A prospect visited my open house and I need a personalized follow-up sequence. Here are the details:<br><br>
+        - Visitor name: <span class="pb-var">[Name]</span><br>
+        - Interest level noted: <span class="pb-var">[e.g., very interested, just browsing, seemed motivated]</span><br>
+        - Notes from conversation: <span class="pb-var">[e.g., mentioned looking for 90 days, has a home to sell first, loved the kitchen, concerned about the school district]</span><br>
+        - Property they visited: <span class="pb-var">[Address — $XXX,XXX — X bed/X bath]</span><br>
+        - Did they give me their contact info: <span class="pb-var">[Yes — text/email / No — only signed in]</span><br><br>
+        Write a <span class="pb-strong">3-touch follow-up sequence</span>: Touch 1 — <span class="pb-strong">same-day text</span> (warm, personal, references something specific from our conversation). Touch 2 — <span class="pb-strong">next-day email</span> (provides value, references their specific situation, includes a soft CTA). Touch 3 — <span class="pb-strong">Day 3 text or call script</span> (checks in, gauges interest, suggests a next step). Every message should feel like it was written just for them — because it was.
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <div class="pt-label">Pro Tip from Dionne</div>
+      <div class="pt-text">Run this prompt for every open house visitor within 2 hours of the event ending. <strong>Agents who follow up same-day convert at 3× the rate of those who wait until Monday.</strong> Speed is respect. Use AI so you're always fast.</div>
+    </div>
+
+    <div class="outcome-strip">
+      <div class="os-icon">🚀</div>
+      <div class="os-content">
+        <div class="os-label">What This Gets You</div>
+        <div class="os-text">A personalized 3-touch follow-up sequence — same-day text, next-day email, and Day 3 check-in — that turns open house visitors into booked appointments without generic drip campaigns.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="pf-left">Prompt #7 — Open House Follow-Up · © 2026 BrandLab Creative</div>
+    <div class="pf-right"><span class="pf-url">brandlabcreative.com</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     FINAL PAGE — CTA / BACK COVER
+════════════════════════════════════ -->
+<div class="page cta-page">
+  <div class="cta-top-bar"></div>
+  <div class="cta-inner">
+
+    <div>
+      <div class="cta-eyebrow">You've Got the Prompts. Now Get the System.</div>
+      <h2 class="cta-title">
+        These 7 Prompts Are<br>
+        Just the <span class="bl">Beginning.</span>
+      </h2>
+      <p class="cta-sub">
+        The agents building the biggest businesses right now aren't just using AI prompts. They're running <strong>a complete system</strong> — a personal brand that attracts the right clients, AI tools that do the heavy lifting, and a community that holds them accountable. That's exactly what we've built.
+      </p>
+    </div>
+
+    <div class="cta-rule"></div>
+
+    <div style="font-size:9pt;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--lg);margin-bottom:14px">Join the Gold Standard Community</div>
+    <div class="tiers-preview">
+      <div class="tp-card">
+        <div class="tp-tier gray">Tier 1</div>
+        <div class="tp-name">Mindset Millionaires</div>
+        <div class="tp-price gray">$5</div>
+        <div class="tp-mo">/month</div>
+        <div class="tp-items">
+          <div class="tp-item">21 mindset & success resources</div>
+          <div class="tp-item">Community accountability</div>
+          <div class="tp-item">Napoleon Hill collection</div>
+        </div>
+      </div>
+      <div class="tp-card blue-t">
+        <div class="tp-tier blue">Tier 2 — Popular</div>
+        <div class="tp-name">AI + Brand Academy</div>
+        <div class="tp-price blue">$97</div>
+        <div class="tp-mo">/month</div>
+        <div class="tp-items">
+          <div class="tp-item">60+ assets including these prompts expanded into full GPTs</div>
+          <div class="tp-item">4 custom AI tools built for agents</div>
+          <div class="tp-item">Full BrandLab system + RE library</div>
+        </div>
+      </div>
+      <div class="tp-card orange-t">
+        <div class="tp-tier orange">Tier 3 — Elite</div>
+        <div class="tp-name">Gold Standard</div>
+        <div class="tp-price orange">$297</div>
+        <div class="tp-mo">/month</div>
+        <div class="tp-items">
+          <div class="tp-item">All 130+ assets + 19 custom GPTs</div>
+          <div class="tp-item">Weekly live coaching with Dionne</div>
+          <div class="tp-item">Deal reviews + script practice</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-action-box">
+      <div class="cab-icon">🚀</div>
+      <div class="cab-content">
+        <div class="cab-label">Ready to Stop Being the Best-Kept Secret?</div>
+        <div class="cab-headline">Join free. Upgrade when you're ready. No pressure.</div>
+        <div class="cab-url">brandlabcreative.com</div>
+      </div>
+    </div>
+
+    <div class="cta-footer-row">
+      <div class="cfr-left">
+        <div class="cfr-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+        <div class="cfr-tagline">"Your brand should work as hard as you do."</div>
+      </div>
+      <div class="cfr-right">
+        <strong>Dionne Malush</strong>
+        Creative AI Strategist · Brokerage Owner<br>
+        StoryBrand Certified Guide · Napoleon Hill Coach<br>
+        Host, Shine on Success Podcast
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

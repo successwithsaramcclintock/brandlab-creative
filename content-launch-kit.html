@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Launch Kit — 7 AI Prompts Freebie · BrandLab Creative</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#00AFEF;--orange:#F58634;--charcoal:#373435;
+  --black:#222221;--gray:#737373;--lg:#A8A8A8;
+  --white:#FFFFFF;--card:#2b2928;--card2:#333130;
+  --green:#4ecb71;--pink:#f472b6;--purple:#c084fc;
+  --nav-h:56px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--white);font-weight:300;font-size:14px}
+
+/* ── TOP NAV ── */
+.top-nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:#1a1918;border-bottom:1px solid rgba(255,255,255,.07);
+  height:var(--nav-h);display:flex;align-items:center;
+  padding:0 32px;gap:4px;overflow-x:auto;
+}
+.nav-logo{font-size:14px;font-weight:800;flex-shrink:0;margin-right:20px;padding-right:20px;border-right:1px solid rgba(255,255,255,.1)}
+.nav-logo .bl{color:var(--blue)}.nav-logo .or{color:var(--orange)}
+.tab-btn{
+  padding:8px 16px;border-radius:6px;font-size:11px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;cursor:pointer;
+  border:1px solid transparent;color:var(--lg);white-space:nowrap;
+  background:transparent;font-family:inherit;transition:all .18s;
+}
+.tab-btn:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.tab-btn.active{background:rgba(0,175,239,.12);color:var(--blue);border-color:rgba(0,175,239,.2)}
+.tab-btn.or-tab.active{background:rgba(245,134,52,.1);color:var(--orange);border-color:rgba(245,134,52,.2)}
+.tab-btn.gr-tab.active{background:rgba(78,203,113,.1);color:var(--green);border-color:rgba(78,203,113,.2)}
+.tab-btn.pk-tab.active{background:rgba(244,114,182,.1);color:var(--pink);border-color:rgba(244,114,182,.2)}
+
+/* ── MAIN ── */
+.main{margin-top:var(--nav-h);padding:40px 48px;max-width:1100px;margin-left:auto;margin-right:auto}
+
+/* ── VIEWS ── */
+.view{display:none}
+.view.active{display:block}
+
+/* ── SHARED ── */
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.page-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.1;letter-spacing:-.5px;margin-bottom:6px}
+.page-title .bl{color:var(--blue)}.page-title .or{color:var(--orange)}.page-title .pk{color:var(--pink)}.page-title .gr{color:var(--green)}
+.title-rule{width:40px;height:3px;background:linear-gradient(90deg,var(--orange),var(--blue));border-radius:2px;margin:12px 0 20px}
+.lead{font-size:14px;color:var(--lg);max-width:700px;line-height:1.8;margin-bottom:32px}
+.lead strong{color:var(--white);font-weight:600}
+
+.day-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;margin-top:32px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+.day-label:first-of-type{margin-top:0}
+
+/* ── COPY CARD ── */
+.copy-card{background:var(--card);border-radius:10px;margin-bottom:16px;overflow:hidden}
+.cc-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05)}
+.cc-left{display:flex;align-items:center;gap:10px}
+.cc-icon{font-size:18px}
+.cc-meta{}
+.cc-platform{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:2px}
+.cc-platform.or{color:var(--orange)}.cc-platform.gr{color:var(--green)}.cc-platform.pk{color:var(--pink)}.cc-platform.pu{color:var(--purple)}
+.cc-type{font-size:12px;font-weight:600;color:var(--white)}
+.copy-btn{background:var(--charcoal);border:1px solid rgba(255,255,255,.1);color:var(--lg);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:5px;cursor:pointer;font-family:inherit;transition:all .18s}
+.copy-btn:hover{background:rgba(0,175,239,.15);color:var(--blue);border-color:rgba(0,175,239,.3)}
+.copy-btn.copied{background:rgba(78,203,113,.15);color:var(--green);border-color:rgba(78,203,113,.3)}
+.cc-body{padding:18px 20px}
+.cc-body pre{white-space:pre-wrap;word-break:break-word;font-family:'Montserrat',sans-serif;font-size:13px;color:#e0e0e0;line-height:1.75}
+.cc-body pre .var{color:var(--orange);font-weight:700}
+.cc-body pre .hl{color:var(--blue);font-weight:600}
+.cc-body pre .tag{color:var(--gray);font-size:12px}
+.cc-footer{padding:10px 20px;background:rgba(0,0,0,.2);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cc-note{font-size:11px;color:var(--gray);font-style:italic}
+.cc-note .orange{color:var(--orange);font-weight:600}
+.char-count{font-size:10px;color:var(--gray);margin-left:auto;font-weight:600}
+
+/* ── STORY SLIDES ── */
+.story-day{margin-bottom:40px}
+.story-day-header{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between}
+.story-slides-row{display:flex;gap:12px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px}
+.story-slide{
+  flex-shrink:0;width:160px;min-height:280px;
+  border-radius:10px;padding:14px 12px;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+}
+.story-slide.dark{background:var(--black);border:1px solid rgba(255,255,255,.08)}
+.story-slide.blue-bg{background:linear-gradient(135deg,rgba(0,175,239,.2),rgba(0,175,239,.05));border:1px solid rgba(0,175,239,.25)}
+.story-slide.orange-bg{background:linear-gradient(135deg,rgba(245,134,52,.18),rgba(245,134,52,.04));border:1px solid rgba(245,134,52,.25)}
+.story-slide.charcoal-bg{background:var(--charcoal);border:1px solid rgba(255,255,255,.08)}
+.story-slide.green-bg{background:linear-gradient(135deg,rgba(78,203,113,.15),rgba(78,203,113,.03));border:1px solid rgba(78,203,113,.2)}
+.ss-num{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--gray);margin-bottom:8px}
+.ss-visual{font-size:28px;margin-bottom:10px;text-align:center}
+.ss-headline{font-size:12px;font-weight:800;line-height:1.25;color:var(--white);margin-bottom:6px}
+.ss-headline .bl{color:var(--blue)}.ss-headline .or{color:var(--orange)}.ss-headline .gr{color:var(--green)}
+.ss-body{font-size:10px;color:var(--lg);line-height:1.5;flex:1}
+.ss-cta{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:10px;padding:6px 10px;border-radius:4px;text-align:center}
+.ss-cta.blue-cta{background:rgba(0,175,239,.2);color:var(--blue)}
+.ss-cta.orange-cta{background:rgba(245,134,52,.2);color:var(--orange)}
+.ss-cta.white-cta{background:rgba(255,255,255,.1);color:var(--white)}
+.ss-sticker{position:absolute;top:10px;right:10px;font-size:14px}
+.ss-swipe{font-size:9px;color:var(--gray);text-align:center;margin-top:8px}
+.ss-swipe.orange{color:var(--orange)}
+
+/* STORY COPY BLOCK */
+.story-copy-block{background:rgba(0,0,0,.25);border-radius:6px;padding:10px 12px;margin-top:10px;font-size:10px;color:#ccc;line-height:1.55}
+.story-copy-block .scb-label{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+
+/* ── REEL SCRIPT ── */
+.reel-card{background:var(--card);border-radius:12px;margin-bottom:24px;overflow:hidden}
+.rc-top{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between}
+.rc-meta{}
+.rc-eyebrow{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.rc-title{font-size:16px;font-weight:800;color:var(--white)}
+.rc-stats{display:flex;gap:16px}
+.rc-stat{text-align:center}
+.rc-stat-val{font-size:15px;font-weight:800;color:var(--blue)}
+.rc-stat-label{font-size:9px;color:var(--gray);letter-spacing:1px;text-transform:uppercase}
+.rc-body{padding:20px 22px}
+.scene{background:var(--card2);border-radius:8px;padding:14px 16px;margin-bottom:10px;border-left:3px solid var(--blue);display:grid;grid-template-columns:80px 1fr;gap:12px;align-items:flex-start}
+.scene.orange{border-left-color:var(--orange)}
+.scene.green{border-left-color:var(--green)}
+.scene-time{font-size:11px;font-weight:700;color:var(--blue);line-height:1.3}
+.scene.orange .scene-time{color:var(--orange)}
+.scene.green .scene-time{color:var(--green)}
+.scene-type{font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-top:2px}
+.scene-content{}
+.scene-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+.scene-script{font-size:12px;color:#e0e0e0;line-height:1.65;font-weight:400}
+.scene-direction{font-size:10px;color:var(--gray);font-style:italic;margin-top:4px}
+.rc-notes{padding:14px 22px;background:rgba(0,0,0,.2);border-top:1px solid rgba(255,255,255,.05)}
+.rc-notes-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.rc-note-row{display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--lg);margin-bottom:5px}
+.rc-note-row::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0}
+
+/* ── EMAIL CAMPAIGN ── */
+.email-flow{display:flex;flex-direction:column;gap:4px;margin-bottom:32px}
+.ef-item{background:var(--card);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:80px 1fr;transition:transform .2s}
+.ef-item:hover{transform:translateX(4px)}
+.ef-day-col{background:rgba(0,175,239,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 8px;text-align:center}
+.ef-day-num{font-size:20px;font-weight:800;color:var(--blue);line-height:1}
+.ef-day-label{font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-top:2px}
+.ef-day-col.or-day{background:rgba(245,134,52,.1)}
+.ef-day-col.or-day .ef-day-num{color:var(--orange)}
+.ef-day-col.gr-day{background:rgba(78,203,113,.1)}
+.ef-day-col.gr-day .ef-day-num{color:var(--green)}
+.ef-content{padding:14px 18px}
+.ef-type{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:3px}
+.ef-subject{font-size:13px;font-weight:700;color:var(--white);margin-bottom:3px}
+.ef-preview{font-size:11px;color:var(--lg)}
+.ef-arrow{font-size:14px;color:var(--orange);margin:0 auto}
+
+.email-detail{background:var(--card);border-radius:12px;margin-bottom:24px;overflow:hidden}
+.ed-header{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.2)}
+.ed-meta{}
+.ed-day{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.ed-subject-line{font-size:15px;font-weight:800;color:var(--white)}
+.ed-preview-text{font-size:11px;color:var(--gray);margin-top:2px;font-style:italic}
+.ed-body{padding:22px}
+.email-preview{background:#f9f9f7;border-radius:8px;padding:24px 28px;font-family:'Montserrat',sans-serif;color:#222}
+.ep-header{margin-bottom:18px;padding-bottom:14px;border-bottom:2px solid #00AFEF;display:flex;align-items:center;justify-content:space-between}
+.ep-logo{font-size:13px;font-weight:800}
+.ep-logo .bl{color:#00AFEF}.ep-logo .or{color:#F58634}
+.ep-tagline{font-size:9px;color:#999;font-style:italic}
+.ep-greeting{font-size:13px;color:#333;margin-bottom:14px;font-weight:400;line-height:1.6}
+.ep-body{font-size:13px;color:#333;line-height:1.75;margin-bottom:16px;font-weight:300}
+.ep-body strong{color:#222;font-weight:700}
+.ep-body em{color:#F58634;font-style:italic}
+.ep-cta-block{background:#222221;border-radius:8px;padding:18px 20px;margin:20px 0;text-align:center}
+.ep-cta-line1{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#A8A8A8;margin-bottom:6px}
+.ep-cta-big{font-size:16px;font-weight:800;color:#fff;margin-bottom:8px}
+.ep-cta-url{font-size:14px;font-weight:800;color:#00AFEF}
+.ep-ps{font-size:12px;color:#888;font-style:italic;margin-top:16px;padding-top:12px;border-top:1px solid #e0e0e0;line-height:1.6}
+.ep-footer{margin-top:18px;padding-top:14px;border-top:1px solid #e0e0e0;font-size:10px;color:#aaa;display:flex;justify-content:space-between;align-items:center}
+.ep-sig{font-size:12px;color:#333;margin-bottom:12px}
+.ep-sig strong{color:#222;display:block;font-size:14px;font-weight:800;margin-bottom:2px}
+
+/* ── CALLOUT ── */
+.callout{display:flex;gap:14px;align-items:flex-start;background:var(--card);border-radius:8px;padding:16px 20px;margin-bottom:16px}
+.callout-icon{font-size:20px;flex-shrink:0}
+.callout-body{font-size:12px;color:var(--lg);line-height:1.65}
+.callout-body strong{color:var(--white)}
+.callout.bl{border-left:3px solid var(--blue)}
+.callout.or{border-left:3px solid var(--orange)}
+.callout.gr{border-left:3px solid var(--green)}
+
+/* ── HASHTAG BLOCK ── */
+.hashtag-block{background:rgba(0,175,239,.05);border:1px solid rgba(0,175,239,.15);border-radius:8px;padding:14px 18px;margin-top:10px}
+.hb-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.hb-tags{font-size:11px;color:var(--lg);line-height:1.8}
+</style>
+</head>
+<body>
+
+<!-- ── TOP NAV ── -->
+<nav class="top-nav">
+  <div class="nav-logo"><span class="bl">BRAND</span><span class="or">LAB</span></div>
+  <button class="tab-btn active" onclick="show('posts',this)">📝 3 Posts</button>
+  <button class="tab-btn" onclick="show('stories',this)">📱 Story Week</button>
+  <button class="tab-btn or-tab" onclick="show('reels',this)">🎬 Reels Scripts</button>
+  <button class="tab-btn gr-tab" onclick="show('email',this)">✉️ Email Campaign</button>
+</nav>
+
+<main class="main">
+
+<!-- ══════════ POSTS ══════════ -->
+<div class="view active" id="view-posts">
+  <div class="eyebrow">Content Launch · Week 1</div>
+  <h1 class="page-title">3 Posts. 3 Days.<br><span class="bl">One Freebie.</span> Maximum Reach.</h1>
+  <div class="title-rule"></div>
+  <p class="lead">These posts are written in Dionne's voice — bold, direct, mentor energy. <strong>One post per day for 3 days, then repeat the cycle.</strong> Each post stands alone AND builds on the others. Copy, paste, post. Sara schedules all three.</p>
+
+  <div class="callout bl">
+    <div class="callout-icon">📌</div>
+    <div class="callout-body"><strong>How to use these:</strong> Post Day 1 on Monday, Day 2 Wednesday, Day 3 Friday. Replace <span style="color:var(--orange);font-weight:700">[LINK]</span> with the GHL landing page URL. All three work for Facebook, Instagram, and LinkedIn (minor tone adjustments noted).</div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-label">Day 1 — Monday · The Hook & Give</div>
+
+  <div class="copy-card">
+    <div class="cc-header">
+      <div class="cc-left">
+        <div class="cc-icon">📘</div>
+        <div class="cc-meta">
+          <div class="cc-platform">Facebook / Instagram</div>
+          <div class="cc-type">Day 1 Post — The Give</div>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyCard(this)">Copy</button>
+    </div>
+    <div class="cc-body">
+      <pre>I've been in real estate for 37 years.
+
+Personally sold 1,000+ homes.
+Helped 200+ agents build businesses that actually work.
+
+And the #1 thing separating agents who are thriving right now from those who are struggling?
+
+<span class="hl">They figured out AI.</span>
+
+Not in theory. Not someday. This week.
+
+So I put together the 7 AI prompts I give to every agent I coach — prompts that write listing descriptions, handle objections, create a week of social content, and re-activate your database.
+
+All free. No catch.
+
+👇 Grab them below. Use one today. Tell me what happened.
+
+<span class="var">[LINK IN BIO / LINK BELOW]</span>
+
+If you know an agent who needs this — send it to them. 🏡</pre>
+    </div>
+    <div class="cc-footer">
+      <div class="cc-note"><span class="orange">LinkedIn version:</span> Start with "37 years in real estate has taught me..." — slightly more professional opener, remove the emoji at the end.</div>
+      <div class="char-count">~320 chars</div>
+    </div>
+  </div>
+
+  <div class="hashtag-block">
+    <div class="hb-label">Hashtags — Day 1</div>
+    <div class="hb-tags">#RealEstateAgent #RealtorLife #AIForRealEstate #RealEstateTips #ListingAgent #RealtorTools #BrandLabCreative #ChatGPTForRealtors #RealEstateMarketing #AgentLife #AITools #TopRealtor #RealEstateBusiness #RealtorSuccess #DionneMalush</div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-label">Day 2 — Wednesday · The Story & Credibility</div>
+
+  <div class="copy-card">
+    <div class="cc-header">
+      <div class="cc-left">
+        <div class="cc-icon">📘</div>
+        <div class="cc-meta">
+          <div class="cc-platform">Facebook / Instagram</div>
+          <div class="cc-type">Day 2 Post — The Proof</div>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyCard(this)">Copy</button>
+    </div>
+    <div class="cc-body">
+      <pre>An agent came to me last month. Sharp. Hardworking. Great with clients.
+
+But her listing descriptions took her 45 minutes each.
+Her follow-ups were generic.
+Her social media was... nonexistent.
+
+I gave her one AI prompt.
+
+She ran it for her next listing appointment. The description took 4 minutes. Her seller said it was the best marketing she'd ever seen on a home.
+
+That's not magic. <span class="hl">That's just knowing which prompt to use.</span>
+
+I've now packed the 7 most powerful prompts for real estate agents into a free guide — and it's yours right now.
+
+Listing descriptions that sell.
+Objection responses that close.
+A full week of social content in 10 minutes.
+Follow-ups that actually convert.
+
+<span class="var">[LINK IN BIO / LINK BELOW]</span>
+
+The agents winning right now aren't working harder.
+They're working smarter. 🤖🏠</pre>
+    </div>
+    <div class="cc-footer">
+      <div class="cc-note"><span class="orange">Note:</span> This is Dionne's strongest post — story-led, outcome-based. Works especially well as a carousel with the 7 prompts as slides.</div>
+      <div class="char-count">~480 chars</div>
+    </div>
+  </div>
+
+  <div class="hashtag-block">
+    <div class="hb-label">Hashtags — Day 2</div>
+    <div class="hb-tags">#RealEstateCoach #AIRealEstate #RealtorMarketing #ListingDescription #RealEstateTips #AgentSuccess #ChatGPT #AIForAgents #RealEstateLife #TopProducer #BrandLabCreative #WorkSmarterNotHarder #RealEstateAgent #RealtorCoach #DionneMalush</div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-label">Day 3 — Friday · The Urgency & Direct Ask</div>
+
+  <div class="copy-card">
+    <div class="cc-header">
+      <div class="cc-left">
+        <div class="cc-icon">📘</div>
+        <div class="cc-meta">
+          <div class="cc-platform">Facebook / Instagram</div>
+          <div class="cc-type">Day 3 Post — The Close</div>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyCard(this)">Copy</button>
+    </div>
+    <div class="cc-body">
+      <pre>Real talk.
+
+While you're manually writing listing descriptions...
+Someone else is using AI to do it in 3 minutes.
+
+While you're staring at a blank page trying to figure out what to post...
+Someone else just got a full week of content in 10 minutes.
+
+While you're losing sleep over what to say when a seller pushes back on your commission...
+Someone else has 3 rehearsed, confident responses ready to go.
+
+That someone doesn't have to be a competitor.
+
+<span class="hl">I made it dead simple.</span>
+
+7 AI prompts. Free. Ready to use today.
+
+📌 Listing descriptions that get showings
+📌 Objection scripts that close
+📌 Database re-activation messages that feel personal
+📌 Open house follow-ups that convert within 48 hours
+
+<span class="var">[LINK IN BIO / LINK BELOW]</span>
+
+Grab it. Use it this weekend.
+Then come tell me which prompt changed everything for you.
+
+Because one of them will. 🔑</pre>
+    </div>
+    <div class="cc-footer">
+      <div class="cc-note"><span class="orange">LinkedIn version:</span> Replace opening with "Here's an uncomfortable truth about AI in real estate..." — leads more professionally, same body.</div>
+      <div class="char-count">~570 chars</div>
+    </div>
+  </div>
+
+  <div class="hashtag-block">
+    <div class="hb-label">Hashtags — Day 3</div>
+    <div class="hb-tags">#RealEstateAgent #AItools #RealtorLife #ListingAgent #ChatGPTPrompts #RealEstateMarketing #AgentLife #TopRealtor #AIForRealtors #WorkSmarter #BrandLabCreative #RealEstateBusiness #FreeResource #RealtorSuccess #DionneMalush</div>
+  </div>
+
+</div>
+
+<!-- ══════════ STORIES ══════════ -->
+<div class="view" id="view-stories">
+  <div class="eyebrow">Story Week · Instagram &amp; Facebook</div>
+  <h1 class="page-title">7 Days of Stories.<br><span class="bl">Built to Convert.</span></h1>
+  <div class="title-rule"></div>
+  <p class="lead">Each day has 1–6 story slides designed to educate, tease, and drive downloads. <strong>Stories are where Dionne's personality lives</strong> — authentic, direct, and always ending with a swipe-up or link tap. Sara builds these in Canva using the BrandLab template.</p>
+
+  <div class="callout or">
+    <div class="callout-icon">🎨</div>
+    <div class="callout-body"><strong>Canva directions for Sara:</strong> Use BrandLab dark template (#222221 background, blue/orange accent, Montserrat font). Each slide = 1080×1920px. Add text from each slide below + matching visual/graphic. Use the network icon as a watermark bottom-right.</div>
+  </div>
+
+  <!-- DAY 1 STORIES -->
+  <div class="story-day">
+    <div class="story-day-header">
+      <span>Day 1 — Monday · The Reveal</span>
+      <span style="font-size:10px;color:var(--gray)">4 slides</span>
+    </div>
+    <div class="story-slides-row">
+      <div class="story-slide dark">
+        <div class="ss-num">Slide 1 of 4</div>
+        <div class="ss-visual">🤖</div>
+        <div class="ss-headline">AI is changing real estate.<br><span class="or">Are you using it?</span></div>
+        <div class="ss-body">Tap through to see what the top agents are doing right now...</div>
+        <div class="ss-swipe orange">→ Tap for more</div>
+      </div>
+      <div class="story-slide blue-bg">
+        <div class="ss-num">Slide 2 of 4</div>
+        <div class="ss-visual">⏱️</div>
+        <div class="ss-headline">Listing descriptions<br>in <span class="bl">3 minutes</span>.</div>
+        <div class="ss-body">Not hours. Not 45 minutes. 3 minutes — and they're better than anything you'd write from scratch.</div>
+        <div class="ss-swipe">→ Keep tapping</div>
+      </div>
+      <div class="story-slide orange-bg">
+        <div class="ss-num">Slide 3 of 4</div>
+        <div class="ss-visual">✍️</div>
+        <div class="ss-headline">I wrote down the<br><span class="or">7 best prompts.</span></div>
+        <div class="ss-body">For listings. Objections. Social content. Database. Open house follow-up. All of it. Free.</div>
+        <div class="ss-swipe orange">→ One more</div>
+      </div>
+      <div class="story-slide dark">
+        <div class="ss-num">Slide 4 of 4</div>
+        <div class="ss-visual">🎁</div>
+        <div class="ss-headline"><span class="bl">Free guide.</span><br>No catch.</div>
+        <div class="ss-body">Link in bio. Grab it. Use it today.</div>
+        <div class="ss-cta orange-cta">↑ LINK IN BIO</div>
+        <div class="ss-swipe orange">brandlabcreative.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 STORIES -->
+  <div class="story-day">
+    <div class="story-day-header">
+      <span>Day 2 — Tuesday · Prompt Preview</span>
+      <span style="font-size:10px;color:var(--gray)">3 slides</span>
+    </div>
+    <div class="story-slides-row">
+      <div class="story-slide charcoal-bg">
+        <div class="ss-num">Slide 1 of 3</div>
+        <div class="ss-sticker">🏠</div>
+        <div class="ss-headline" style="margin-top:8px">Prompt #1:<br><span class="bl">Listing descriptions that sell.</span></div>
+        <div class="ss-body">Copy this into ChatGPT → give it your home details → get 3 versions: MLS, Zillow, and website copy. In under 3 minutes.</div>
+        <div class="ss-swipe">→ See what you get</div>
+      </div>
+      <div class="story-slide blue-bg">
+        <div class="ss-num">Slide 2 of 3</div>
+        <div class="ss-visual">📝</div>
+        <div class="ss-headline">Your seller said it was<br><span class="bl">"the best marketing"</span><br>they'd ever seen.</div>
+        <div class="ss-body">That's what happens when your description tells a story instead of listing specs.</div>
+        <div class="ss-swipe">→ Get all 7 prompts</div>
+      </div>
+      <div class="story-slide dark">
+        <div class="ss-num">Slide 3 of 3</div>
+        <div class="ss-visual">👇</div>
+        <div class="ss-headline">6 more prompts<br>just like this one.</div>
+        <div class="ss-body">All free. All built for real estate agents. All ready to use today.</div>
+        <div class="ss-cta blue-cta">GRAB THE FREE GUIDE</div>
+        <div class="ss-swipe orange">↑ Link in bio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 STORIES -->
+  <div class="story-day">
+    <div class="story-day-header">
+      <span>Day 3 — Wednesday · Behind the Scenes</span>
+      <span style="font-size:10px;color:var(--gray)">2 slides · Dionne on camera</span>
+    </div>
+    <div class="story-slides-row">
+      <div class="story-slide dark">
+        <div class="ss-num">Slide 1 of 2</div>
+        <div class="ss-visual">🎙️</div>
+        <div class="ss-headline"><span class="or">Dionne talking to camera</span></div>
+        <div class="ss-body" style="margin-top:8px">"I just dropped something free that I wish someone had given me when I started coaching agents on AI. 37 years in. 200+ agents mentored. Here's what actually works."</div>
+        <div class="story-copy-block">
+          <div class="scb-label">Dionne says on camera:</div>
+          "I put together 7 AI prompts for real estate agents — completely free. Listing descriptions, objections, database reactivation... link in bio. Go grab it right now."
+        </div>
+      </div>
+      <div class="story-slide orange-bg">
+        <div class="ss-num">Slide 2 of 2</div>
+        <div class="ss-visual">📲</div>
+        <div class="ss-headline">Go get it.<br><span class="or">Right now.</span></div>
+        <div class="ss-body">Free. No email wall. Just the prompts. Use one today — then tell me which one hit different.</div>
+        <div class="ss-cta orange-cta">↑ LINK IN BIO</div>
+      </div>
+    </div>
+    <div class="callout or" style="margin-top:12px">
+      <div class="callout-icon">📹</div>
+      <div class="callout-body"><strong>Direction for Dionne:</strong> 15–20 second vertical video. Casual, no script needed — just the camera talking points above. Can be done in one take from her phone. Sara adds text overlay and branding in CapCut/Canva.</div>
+    </div>
+  </div>
+
+  <!-- DAY 4 STORIES -->
+  <div class="story-day">
+    <div class="story-day-header">
+      <span>Day 4 — Thursday · Social Proof &amp; Countdown</span>
+      <span style="font-size:10px;color:var(--gray)">4 slides</span>
+    </div>
+    <div class="story-slides-row">
+      <div class="story-slide dark">
+        <div class="ss-num">Slide 1 of 4</div>
+        <div class="ss-visual">💬</div>
+        <div class="ss-headline">"Which prompt did<br>you try first?"</div>
+        <div class="ss-body">Poll or question box — let your audience tell you. Engagement = algorithm reach.</div>
+        <div class="ss-cta white-cta">POLL: Listing · Objections · Social · Other</div>
+      </div>
+      <div class="story-slide blue-bg">
+        <div class="ss-num">Slide 2 of 4</div>
+        <div class="ss-visual">🏆</div>
+        <div class="ss-headline">$2.5B+ in real estate.<br><span class="bl">These prompts work.</span></div>
+        <div class="ss-body">They're what I give to every agent I coach personally. Now they're yours. Free.</div>
+        <div class="ss-swipe">→ Keep watching</div>
+      </div>
+      <div class="story-slide charcoal-bg">
+        <div class="ss-num">Slide 3 of 4</div>
+        <div class="ss-visual">📋</div>
+        <div class="ss-headline">What's inside:<br><span class="bl">7 plug-and-play prompts</span></div>
+        <div class="ss-body" style="font-size:9px;line-height:1.6">→ Listing descriptions<br>→ Objection responses<br>→ 7 days social content<br>→ Buyer consultation prep<br>→ Database reactivation<br>→ Price reduction script<br>→ Open house follow-up</div>
+      </div>
+      <div class="story-slide green-bg">
+        <div class="ss-num">Slide 4 of 4</div>
+        <div class="ss-visual">🎯</div>
+        <div class="ss-headline"><span class="gr">Free.</span><br>Forever yours.</div>
+        <div class="ss-body">No expiration. No upsell to access. Just 7 prompts that will change how you work.</div>
+        <div class="ss-cta orange-cta">↑ GRAB IT — LINK IN BIO</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 STORIES -->
+  <div class="story-day">
+    <div class="story-day-header">
+      <span>Day 5 — Friday · Prompt #2 Teaser + Share Push</span>
+      <span style="font-size:10px;color:var(--gray)">3 slides</span>
+    </div>
+    <div class="story-slides-row">
+      <div class="story-slide dark">
+        <div class="ss-num">Slide 1 of 3</div>
+        <div class="ss-sticker">💬</div>
+        <div class="ss-headline" style="margin-top:8px">Prompt #2:<br><span class="or">Handle any objection. Confidently.</span></div>
+        <div class="ss-body">This prompt gives you 3 different responses to any objection in under 2 minutes. Direct. Empathetic. Story-based. You pick.</div>
+        <div class="ss-swipe">→ You need this</div>
+      </div>
+      <div class="story-slide orange-bg">
+        <div class="ss-num">Slide 2 of 3</div>
+        <div class="ss-visual">🤔</div>
+        <div class="ss-headline">"Your commission<br>is too high."</div>
+        <div class="ss-body">What do you say? Most agents stumble. The right response is in the guide. And it's free.</div>
+        <div class="ss-swipe orange">→ One more</div>
+      </div>
+      <div class="story-slide dark">
+        <div class="ss-num">Slide 3 of 3</div>
+        <div class="ss-visual">👯</div>
+        <div class="ss-headline">Know an agent<br>who needs this?</div>
+        <div class="ss-body">Send them this story. This is the kind of thing you share with your real estate friends — not keep to yourself.</div>
+        <div class="ss-cta blue-cta">SHARE THIS STORY →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 6 STORIES -->
+  <div class="story-day">
+    <div class="story-day-header">
+      <span>Day 6 — Saturday · Weekend Casual + Question Box</span>
+      <span style="font-size:10px;color:var(--gray)">2 slides · More personal/casual</span>
+    </div>
+    <div class="story-slides-row">
+      <div class="story-slide charcoal-bg">
+        <div class="ss-num">Slide 1 of 2</div>
+        <div class="ss-visual">☕</div>
+        <div class="ss-headline">Weekend question:<br><span class="bl">Are you using AI in your business yet?</span></div>
+        <div class="ss-body">Question box — genuinely curious. This becomes content for next week AND tells you exactly who in your audience is AI-ready.</div>
+        <div class="ss-cta white-cta">💬 Drop your answer below</div>
+      </div>
+      <div class="story-slide dark">
+        <div class="ss-num">Slide 2 of 2</div>
+        <div class="ss-visual">🎁</div>
+        <div class="ss-headline">If you haven't grabbed<br>the <span class="or">free guide yet...</span></div>
+        <div class="ss-body">7 AI prompts for real estate agents. Still free. Still waiting. Link in bio — takes 30 seconds to download.</div>
+        <div class="ss-cta orange-cta">↑ STILL FREE — GRAB IT</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7 STORIES -->
+  <div class="story-day">
+    <div class="story-day-header">
+      <span>Day 7 — Sunday · Repost Engagement + Week 2 Preview</span>
+      <span style="font-size:10px;color:var(--gray)">1 slide</span>
+    </div>
+    <div class="story-slides-row">
+      <div class="story-slide blue-bg">
+        <div class="ss-num">Slide 1 of 1</div>
+        <div class="ss-visual">📊</div>
+        <div class="ss-headline">The results are in.<br><span class="bl">Here's what agents said</span> about the prompts...</div>
+        <div class="ss-body">Screenshot/repost the best DMs and replies you received this week. Social proof closes the loop. Sara curates these for you.</div>
+        <div class="ss-cta blue-cta">SHARE YOUR WIN WITH ME →</div>
+        <div class="story-copy-block">
+          <div class="scb-label">Sara's note:</div>
+          Compile best DMs from the week. Screenshot with names blurred. Repost as this slide. This is your best organic content.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ REELS ══════════ -->
+<div class="view" id="view-reels">
+  <div class="eyebrow">Reels Scripts · Instagram &amp; Facebook</div>
+  <h1 class="page-title">3 Reels.<br><span class="or">Dionne to Camera.</span> <span class="bl">Sara Edits.</span></h1>
+  <div class="title-rule"></div>
+  <p class="lead">Each script is structured Hook → Value → CTA. <strong>Dionne records, Sara edits, adds captions, b-roll text overlays, and posts.</strong> Target length: 30–60 seconds each. Shot on phone, vertical, natural lighting. No studio required.</p>
+
+  <div class="callout gr">
+    <div class="callout-icon">🎬</div>
+    <div class="callout-body"><strong>For Sara:</strong> Edit in CapCut or Descript. Add captions (auto-generated + cleaned up). Text overlay on key phrases. BrandLab logo watermark bottom-right. Blue/orange accent bar at top. Music: upbeat but not distracting — no trending audio that could get muted. Post at 9am or 6pm EST for max reach.</div>
+  </div>
+
+  <!-- REEL 1 -->
+  <div class="reel-card">
+    <div class="rc-top">
+      <div class="rc-meta">
+        <div class="rc-eyebrow">Reel #1 · Monday</div>
+        <div class="rc-title">The 3-Minute Listing Description</div>
+      </div>
+      <div class="rc-stats">
+        <div class="rc-stat"><div class="rc-stat-val">45s</div><div class="rc-stat-label">Target Length</div></div>
+        <div class="rc-stat"><div class="rc-stat-val">Hook</div><div class="rc-stat-label">→ Demo → CTA</div></div>
+      </div>
+    </div>
+    <div class="rc-body">
+      <div class="scene">
+        <div><div class="scene-time">0:00 – 0:05</div><div class="scene-type">HOOK</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"How long does it take you to write a listing description? If it's more than 4 minutes, I need to show you something."</div>
+          <div class="scene-direction">📹 Close to camera. Direct eye contact. Slight pause after "4 minutes."</div>
+        </div>
+      </div>
+      <div class="scene orange">
+        <div><div class="scene-time">0:05 – 0:25</div><div class="scene-type">VALUE</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"I've been in real estate for 37 years. I've written thousands of listing descriptions. And I'm telling you — AI just changed the game. I have a prompt that gives you three versions of a listing description — one for MLS, one for Zillow, one for your website — in under 3 minutes. And they're better than what most agents spend an hour writing. The secret is in how you ask."</div>
+          <div class="scene-direction">📹 Can use screen recording overlay showing ChatGPT output. Sara adds text overlay: "3 VERSIONS IN 3 MINUTES"</div>
+        </div>
+      </div>
+      <div class="scene green">
+        <div><div class="scene-time">0:25 – 0:40</div><div class="scene-type">CTA</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"I put this prompt — and 6 others just like it — into a free guide for real estate agents. Listing descriptions, objection handling, social content, database reactivation... all free. Link in my bio. Grab it right now and use it before your next listing appointment."</div>
+          <div class="scene-direction">📹 Hold up phone or point to bio. Smile — this is the give moment. End on confidence.</div>
+        </div>
+      </div>
+    </div>
+    <div class="rc-notes">
+      <div class="rc-notes-title">Sara's Edit Notes</div>
+      <div class="rc-note-row">Add text overlay at 0:05: "37 YEARS IN REAL ESTATE" — fades out after 2 seconds</div>
+      <div class="rc-note-row">At 0:15: full-screen text card "3 LISTING DESCRIPTIONS IN 3 MINUTES" — hold for 1.5 seconds</div>
+      <div class="rc-note-row">End card: BrandLab logo + "FREE GUIDE — LINK IN BIO" with arrow pointing up</div>
+      <div class="rc-note-row">Caption: "How long does your listing description take? Drop your answer below 👇" — then include full post copy from Day 1</div>
+    </div>
+  </div>
+
+  <!-- REEL 2 -->
+  <div class="reel-card">
+    <div class="rc-top">
+      <div class="rc-meta">
+        <div class="rc-eyebrow">Reel #2 · Wednesday</div>
+        <div class="rc-title">The Objection No Agent Wants to Hear</div>
+      </div>
+      <div class="rc-stats">
+        <div class="rc-stat"><div class="rc-stat-val">35s</div><div class="rc-stat-label">Target Length</div></div>
+        <div class="rc-stat"><div class="rc-stat-val">Story</div><div class="rc-stat-label">→ Problem → Fix</div></div>
+      </div>
+    </div>
+    <div class="rc-body">
+      <div class="scene">
+        <div><div class="scene-time">0:00 – 0:06</div><div class="scene-type">HOOK</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"A seller just looked at you and said: 'Your commission is too high.' What do you say?"</div>
+          <div class="scene-direction">📹 Pause. Let the silence land. Lean slightly forward. This question is the hook — let it breathe.</div>
+        </div>
+      </div>
+      <div class="scene orange">
+        <div><div class="scene-time">0:06 – 0:22</div><div class="scene-type">VALUE</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"Most agents freeze. They drop their commission. They lose the listing. I've seen it thousands of times in 37 years. Here's what the top agents do instead — they have three ready responses. A direct one, an empathetic one, and a story-based one. And they choose based on the client sitting in front of them. I've built an AI prompt that writes all three for ANY objection in under 2 minutes."</div>
+          <div class="scene-direction">📹 Sara adds text overlays: "FREEZE." / "DROP COMMISSION." / "LOSE THE LISTING." — each for 1 second as Dionne says them</div>
+        </div>
+      </div>
+      <div class="scene green">
+        <div><div class="scene-time">0:22 – 0:35</div><div class="scene-type">CTA</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"It's prompt number 2 in my free guide — 7 AI prompts built specifically for real estate agents. Link in bio. Go get it before your next listing appointment. You'll thank yourself."</div>
+          <div class="scene-direction">📹 Confident, warm close. Can hold up fingers "number 2." Point up for bio link.</div>
+        </div>
+      </div>
+    </div>
+    <div class="rc-notes">
+      <div class="rc-notes-title">Sara's Edit Notes</div>
+      <div class="rc-note-row">Open with a 1-second black screen then SMASH cut to Dionne — grabs attention immediately</div>
+      <div class="rc-note-row">Text overlay at 0:06: the question itself — white text, big font, fills screen for 2 seconds</div>
+      <div class="rc-note-row">At 0:20: "ANY OBJECTION. 2 MINUTES." — bold, blue text overlay</div>
+      <div class="rc-note-row">Caption hook: "The objection every agent hates — and the AI-powered response that works every time 👇"</div>
+    </div>
+  </div>
+
+  <!-- REEL 3 -->
+  <div class="reel-card">
+    <div class="rc-top">
+      <div class="rc-meta">
+        <div class="rc-eyebrow">Reel #3 · Friday</div>
+        <div class="rc-title">What Your Competition Already Knows</div>
+      </div>
+      <div class="rc-stats">
+        <div class="rc-stat"><div class="rc-stat-val">50s</div><div class="rc-stat-label">Target Length</div></div>
+        <div class="rc-stat"><div class="rc-stat-val">Fear</div><div class="rc-stat-label">→ Hope → Give</div></div>
+      </div>
+    </div>
+    <div class="rc-body">
+      <div class="scene">
+        <div><div class="scene-time">0:00 – 0:08</div><div class="scene-type">HOOK</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"The agents winning right now are not working harder than you. They're just using a tool you haven't tried yet."</div>
+          <div class="scene-direction">📹 Direct to camera. No smile yet — this is serious. The hook needs weight.</div>
+        </div>
+      </div>
+      <div class="scene orange">
+        <div><div class="scene-time">0:08 – 0:33</div><div class="scene-type">VALUE</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"I'm Dionne Malush. I've sold over 1,000 homes personally. I've led and mentored over 200 agents. And right now I'm watching a split happen in real estate — between agents who figured out AI and agents who are getting left behind. The ones winning? They're writing better listing descriptions in 3 minutes. They're building a week of social content in 10 minutes. They're reactivating their database with messages that feel personal — because AI helps them make it personal. I've built the prompts. They work. And I'm giving them away free — because I believe every agent deserves to compete on a level playing field."</div>
+          <div class="scene-direction">📹 Sara overlays key stats: "1,000+ HOMES SOLD" / "200+ AGENTS MENTORED" / "3 MINUTES" / "10 MINUTES" — timed to Dionne's words</div>
+        </div>
+      </div>
+      <div class="scene green">
+        <div><div class="scene-time">0:33 – 0:50</div><div class="scene-type">CTA</div></div>
+        <div class="scene-content">
+          <div class="scene-label">Dionne says:</div>
+          <div class="scene-script">"7 AI prompts for real estate agents. Completely free. Listing descriptions, objections, social content, database reactivation, open house follow-up — all of it. Link is in my bio right now. Go get it. Use one today. Then come back and tell me what changed. Because something will."</div>
+          <div class="scene-direction">📹 Warm close. Smile returns. This is the give — let it feel generous. End on "something will" with a knowing nod.</div>
+        </div>
+      </div>
+    </div>
+    <div class="rc-notes">
+      <div class="rc-notes-title">Sara's Edit Notes</div>
+      <div class="rc-note-row">This is the hero reel — most polished edit of the three. Worth spending extra time on.</div>
+      <div class="rc-note-row">At 0:08: stat card "1,000+ HOMES SOLD · 200+ AGENTS MENTORED" — 2 second hold</div>
+      <div class="rc-note-row">Throughout value section: cut between Dionne talking and quick text cards for each stat</div>
+      <div class="rc-note-row">End card: "FREE GUIDE → LINK IN BIO" with BrandLab branding and URL. Hold for 3 seconds.</div>
+      <div class="rc-note-row">This reel is also the one to boost with $20–50 paid promotion targeting real estate agents in Dionne's market</div>
+      <div class="rc-note-row">Caption: Use the full Day 3 post copy — it matches the reel's energy perfectly</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ EMAIL ══════════ -->
+<div class="view" id="view-email">
+  <div class="eyebrow">Email Campaign · GHL Automation</div>
+  <h1 class="page-title">6 Emails.<br><span class="gr">Delivered Automatically.</span> <span class="bl">Converts to $97.</span></h1>
+  <div class="title-rule"></div>
+  <p class="lead">This sequence runs automatically in GHL from the moment someone downloads the freebie. <strong>The goal: deliver value, build trust, and convert to Tier 2 ($97/mo) by Day 14.</strong> Sara builds this in GHL — zero Dionne involvement after the initial setup.</p>
+
+  <div class="callout bl">
+    <div class="callout-icon">⚙️</div>
+    <div class="callout-body"><strong>GHL setup for Sara:</strong> Trigger = lead magnet form submitted. Tag contact as "7-Prompts-Download." Sequence: Email 1 immediate, Email 2 Day 1, Email 3 Day 3, Email 4 Day 7, Email 5 Day 10, Email 6 Day 14. After Day 14, move to monthly newsletter list.</div>
+  </div>
+
+  <!-- EMAIL FLOW OVERVIEW -->
+  <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:14px">Sequence Overview</div>
+  <div class="email-flow">
+    <div class="ef-item"><div class="ef-day-col"><div class="ef-day-num">0</div><div class="ef-day-label">Immediate</div></div><div class="ef-content"><div class="ef-type">Delivery</div><div class="ef-subject">Here are your 7 AI Prompts — use one in the next hour</div><div class="ef-preview">Welcome + PDF link + first quick win challenge</div></div></div>
+    <div class="ef-item"><div class="ef-day-col or-day"><div class="ef-day-num">1</div><div class="ef-day-label">Day 1</div></div><div class="ef-content"><div class="ef-type">Value + Story</div><div class="ef-subject">Did you try Prompt #1 yet? Here's what happened when an agent did.</div><div class="ef-preview">Case study story, reinforce the win, no ask yet</div></div></div>
+    <div class="ef-item"><div class="ef-day-col"><div class="ef-day-num">3</div><div class="ef-day-label">Day 3</div></div><div class="ef-content"><div class="ef-type">Value + Share</div><div class="ef-subject">The prompt most agents skip (it's #5)</div><div class="ef-preview">Database reactivation spotlight + share this with a colleague CTA</div></div></div>
+    <div class="ef-item"><div class="ef-day-col or-day"><div class="ef-day-num">7</div><div class="ef-day-label">Day 7</div></div><div class="ef-content"><div class="ef-type">Soft Offer</div><div class="ef-subject">There are 19 GPTs where those 7 prompts came from</div><div class="ef-preview">Introduce AI + Brand Academy ($97/mo) — first offer</div></div></div>
+    <div class="ef-item"><div class="ef-day-col gr-day"><div class="ef-day-num">10</div><div class="ef-day-label">Day 10</div></div><div class="ef-content"><div class="ef-type">Proof + Urgency</div><div class="ef-subject">What agents in the community are doing with AI right now</div><div class="ef-preview">Community wins, social proof, Tier 2 offer reinforced</div></div></div>
+    <div class="ef-item"><div class="ef-day-col or-day"><div class="ef-day-num">14</div><div class="ef-day-label">Day 14</div></div><div class="ef-content"><div class="ef-type">Hard Close</div><div class="ef-subject">Last thing — then I'll leave you alone</div><div class="ef-preview">Direct offer, clear value, join or stay on newsletter list</div></div></div>
+  </div>
+
+  <!-- EMAIL 1 -->
+  <div class="email-detail">
+    <div class="ed-header">
+      <div class="ed-meta">
+        <div class="ed-day">Email 1 · Immediate Delivery</div>
+        <div class="ed-subject-line">Here are your 7 AI Prompts — use one in the next hour</div>
+        <div class="ed-preview-text">Preview: You asked for it. Here it is. Don't just read it — use it today.</div>
+      </div>
+      <button class="copy-btn" onclick="copyEmail('e1')">Copy Email</button>
+    </div>
+    <div class="ed-body">
+      <div class="email-preview" id="e1">
+        <div class="ep-header">
+          <div class="ep-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+          <div class="ep-tagline">"Your brand should work as hard as you do."</div>
+        </div>
+        <div class="ep-greeting">Hi [First Name],</div>
+        <div class="ep-body">
+          You just made a smart move.<br><br>
+          Here are your <strong>7 AI Prompts for Real Estate Agents</strong> — ready to use right now.<br><br>
+          <em>👉 Download your free guide here: [LINK]</em><br><br>
+          I have one request: don't just download it and let it sit in a folder.<br><br>
+          <strong>Use one prompt today.</strong> Pick the one that fits your biggest challenge right now and run it. It takes less than 5 minutes. The results will tell you everything you need to know about how AI is about to change the way you work.<br><br>
+          My suggestion? Start with Prompt #1 if you have a listing appointment coming up, or Prompt #5 if you've been meaning to touch your database and keep putting it off.<br><br>
+          Hit reply and tell me which one you tried. I read every response.
+        </div>
+        <div class="ep-sig">
+          <strong>Dionne Malush</strong>
+          Creative AI Strategist · Brokerage Owner<br>
+          37+ years · $2.5B+ built · 200+ agents mentored<br>
+          brandlabcreative.com
+        </div>
+        <div class="ep-ps">P.S. — If you know another agent who needs this, forward it to them. The agents who win together are the ones who share what works. This is worth sharing.</div>
+        <div class="ep-footer">
+          <div>© 2026 BrandLab Creative · Dionne Malush</div>
+          <div><a href="#" style="color:#00AFEF">Unsubscribe</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 2 -->
+  <div class="email-detail">
+    <div class="ed-header">
+      <div class="ed-meta">
+        <div class="ed-day">Email 2 · Day 1</div>
+        <div class="ed-subject-line">Did you try Prompt #1 yet? Here's what happened when an agent did.</div>
+        <div class="ed-preview-text">Preview: She said it was the best marketing her seller had ever seen.</div>
+      </div>
+      <button class="copy-btn" onclick="copyEmail('e2')">Copy Email</button>
+    </div>
+    <div class="ed-body">
+      <div class="email-preview" id="e2">
+        <div class="ep-header">
+          <div class="ep-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+          <div class="ep-tagline">"Your brand should work as hard as you do."</div>
+        </div>
+        <div class="ep-greeting">Hi [First Name],</div>
+        <div class="ep-body">
+          Quick story.<br><br>
+          An agent came to me last month — sharp, hardworking, great with clients. Her biggest frustration? Writing listing descriptions took her 45 minutes every single time. She'd stare at a blank page, trying to make a 3-bedroom colonial in a suburb sound like something worth getting excited about.<br><br>
+          I gave her Prompt #1.<br><br>
+          She ran it that night for her next listing. <strong>The description took 4 minutes.</strong> Her seller called the next morning and said it was the best marketing she'd ever seen on a home.<br><br>
+          That listing went under contract in 6 days.<br><br>
+          I'm not telling you AI is magic. I'm telling you that <em>the right prompt, used by someone who knows real estate, produces results that generic content never will.</em><br><br>
+          If you haven't tried Prompt #1 yet — do it today. Just pick a listing (current or upcoming), drop in the details, and see what comes back. Then reply and tell me what you think.
+        </div>
+        <div class="ep-sig">
+          <strong>Dionne Malush</strong>
+          brandlabcreative.com
+        </div>
+        <div class="ep-ps">P.S. — Did a colleague send you this? You can grab your own copy of the free guide here: [LINK]</div>
+        <div class="ep-footer">
+          <div>© 2026 BrandLab Creative</div>
+          <div><a href="#" style="color:#00AFEF">Unsubscribe</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 3 -->
+  <div class="email-detail">
+    <div class="ed-header">
+      <div class="ed-meta">
+        <div class="ed-day">Email 3 · Day 3 — Share This</div>
+        <div class="ed-subject-line">The prompt most agents skip (it's #5)</div>
+        <div class="ed-preview-text">Preview: Your database is your most valuable asset. Most agents barely touch it.</div>
+      </div>
+      <button class="copy-btn" onclick="copyEmail('e3')">Copy Email</button>
+    </div>
+    <div class="ed-body">
+      <div class="email-preview" id="e3">
+        <div class="ep-header">
+          <div class="ep-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+          <div class="ep-tagline">"Your brand should work as hard as you do."</div>
+        </div>
+        <div class="ep-greeting">Hi [First Name],</div>
+        <div class="ep-body">
+          Here's one most agents skip: <strong>Prompt #5 — Database Reactivation.</strong><br><br>
+          I know why they skip it. Reaching out to people you haven't spoken to in 18 months feels awkward. You don't know what to say. You don't want to seem salesy. So you put it off — and your database gets colder every week.<br><br>
+          <em>Your database is your business in real estate. Period.</em><br><br>
+          Prompt #5 writes a personalized text, email, and voicemail script for each contact — based on what you actually remember about them. Not a drip template. A message that feels like it was written by someone who actually knows them.<br><br>
+          Try it for 5 contacts this week. That's 5 touches to people who already know you. One of them is probably ready to make a move.<br><br>
+          <strong>One more thing:</strong> if you know an agent who's been meaning to do this but keeps putting it off — forward this email. They'll thank you.
+        </div>
+        <div class="ep-cta-block">
+          <div class="ep-cta-line1">Share the free guide with a colleague</div>
+          <div class="ep-cta-big">Forward this email or send them the link</div>
+          <div class="ep-cta-url">[FREEBIE LANDING PAGE LINK]</div>
+        </div>
+        <div class="ep-sig">
+          <strong>Dionne Malush</strong>
+          brandlabcreative.com
+        </div>
+        <div class="ep-footer">
+          <div>© 2026 BrandLab Creative</div>
+          <div><a href="#" style="color:#00AFEF">Unsubscribe</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 4 -->
+  <div class="email-detail">
+    <div class="ed-header">
+      <div class="ed-meta">
+        <div class="ed-day">Email 4 · Day 7 — First Offer</div>
+        <div class="ed-subject-line">There are 19 GPTs where those 7 prompts came from</div>
+        <div class="ed-preview-text">Preview: The prompts are the free sample. The full toolkit is inside the community.</div>
+      </div>
+      <button class="copy-btn" onclick="copyEmail('e4')">Copy Email</button>
+    </div>
+    <div class="ed-body">
+      <div class="email-preview" id="e4">
+        <div class="ep-header">
+          <div class="ep-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+          <div class="ep-tagline">"Your brand should work as hard as you do."</div>
+        </div>
+        <div class="ep-greeting">Hi [First Name],</div>
+        <div class="ep-body">
+          You've had the 7 prompts for a week now. I hope you've used at least one of them — and I hope it delivered.<br><br>
+          I want to tell you what else exists.<br><br>
+          Those 7 prompts are a taste of what I've built for agents inside my <strong>AI + Brand Academy</strong> — the second tier of my Gold Standard community. Inside, you get:<br><br>
+          → <strong>19 custom GPTs</strong> built specifically for real estate (not generic AI — trained for your world)<br>
+          → 60+ resources: AI ebooks, brand-building guides, real estate playbooks<br>
+          → Full BrandLab branding system — so your AI-powered content actually sounds like you<br>
+          → Weekly AI tool reviews and live content challenges<br><br>
+          <em>The 7 prompts you downloaded? They're Prompt #1 through #7 of a much larger system.</em><br><br>
+          The AI + Brand Academy is <strong>$97/month.</strong> For context: that's less than one lost lead.
+        </div>
+        <div class="ep-cta-block">
+          <div class="ep-cta-line1">Ready to go deeper?</div>
+          <div class="ep-cta-big">Join the AI + Brand Academy — $97/mo</div>
+          <div class="ep-cta-url">[SKOOL TIER 2 LINK]</div>
+        </div>
+        <div class="ep-body">
+          No pressure. The 7 prompts are yours to keep regardless. But if you've already felt a difference this week — imagine what 19 purpose-built GPTs would do for your business.
+        </div>
+        <div class="ep-sig">
+          <strong>Dionne Malush</strong>
+          brandlabcreative.com
+        </div>
+        <div class="ep-footer">
+          <div>© 2026 BrandLab Creative</div>
+          <div><a href="#" style="color:#00AFEF">Unsubscribe</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 5 -->
+  <div class="email-detail">
+    <div class="ed-header">
+      <div class="ed-meta">
+        <div class="ed-day">Email 5 · Day 10 — Social Proof</div>
+        <div class="ed-subject-line">What agents in the community are doing with AI right now</div>
+        <div class="ed-preview-text">Preview: The results are coming in. Here's what's actually happening.</div>
+      </div>
+      <button class="copy-btn" onclick="copyEmail('e5')">Copy Email</button>
+    </div>
+    <div class="ed-body">
+      <div class="email-preview" id="e5">
+        <div class="ep-header">
+          <div class="ep-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+          <div class="ep-tagline">"Your brand should work as hard as you do."</div>
+        </div>
+        <div class="ep-greeting">Hi [First Name],</div>
+        <div class="ep-body">
+          I want to share what's happening inside the community right now.<br><br>
+          Agents are using the AI tools to:<br><br>
+          → Write a week of social content in one Sunday morning session — then schedule it and not think about it again<br>
+          → Walk into listing appointments with custom-built objection responses for that specific seller<br>
+          → Re-activate database contacts they hadn't spoken to in 2 years — and book appointments<br>
+          → Create open house follow-up sequences that go out same-day, every time, automatically<br><br>
+          <strong>This is what happens when real estate expertise meets AI tools that are actually built for your world.</strong><br><br>
+          The community is called the <em>AI + Brand Academy</em> — $97/month. The 7 prompts you already have are the preview. The full toolkit is inside.<br><br>
+          If you've been on the fence — this is the nudge. The agents joining now are building a significant head start over those who wait.
+        </div>
+        <div class="ep-cta-block">
+          <div class="ep-cta-line1">Join the agents already inside</div>
+          <div class="ep-cta-big">AI + Brand Academy — $97/month</div>
+          <div class="ep-cta-url">[SKOOL TIER 2 LINK]</div>
+        </div>
+        <div class="ep-sig">
+          <strong>Dionne Malush</strong>
+          brandlabcreative.com
+        </div>
+        <div class="ep-footer">
+          <div>© 2026 BrandLab Creative</div>
+          <div><a href="#" style="color:#00AFEF">Unsubscribe</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL 6 -->
+  <div class="email-detail">
+    <div class="ed-header">
+      <div class="ed-meta">
+        <div class="ed-day">Email 6 · Day 14 — Final Close</div>
+        <div class="ed-subject-line">Last thing — then I'll leave you alone</div>
+        <div class="ed-preview-text">Preview: I don't do pressure. But I do do honest.</div>
+      </div>
+      <button class="copy-btn" onclick="copyEmail('e6')">Copy Email</button>
+    </div>
+    <div class="ed-body">
+      <div class="email-preview" id="e6">
+        <div class="ep-header">
+          <div class="ep-logo"><span class="bl">BRAND</span><span class="or">LAB</span> CREATIVE</div>
+          <div class="ep-tagline">"Your brand should work as hard as you do."</div>
+        </div>
+        <div class="ep-greeting">Hi [First Name],</div>
+        <div class="ep-body">
+          I'm going to be direct with you — because that's the only way I know how to be.<br><br>
+          You downloaded 7 AI prompts two weeks ago. I hope they've helped. I hope at least one of them saved you time, helped you close something, or just made one annoying task easier.<br><br>
+          I've mentioned the <strong>AI + Brand Academy</strong> a few times. <em>$97/month.</em> 19 GPTs. 60+ resources. A community of agents doing the work.<br><br>
+          This is the last time I'll bring it up in this sequence.<br><br>
+          Here's the honest version: the agents who join tend to stay. The agents who don't tend to keep doing things the same way, complaining about the same problems, and wondering why the market feels harder than it should.<br><br>
+          I'm not trying to sell you something you don't need. I'm trying to give you what I give every agent I personally mentor — a real system that works.<br><br>
+          If it's not for you right now, that's completely fine. You'll stay on my list and I'll keep sharing what I know — no strings attached. The 7 prompts are still yours.<br><br>
+          But if you're ready — the door is open.
+        </div>
+        <div class="ep-cta-block">
+          <div class="ep-cta-line1">Join when you're ready</div>
+          <div class="ep-cta-big">AI + Brand Academy — $97/month</div>
+          <div class="ep-cta-url">[SKOOL TIER 2 LINK]</div>
+        </div>
+        <div class="ep-sig">
+          <strong>Dionne Malush</strong>
+          brandlabcreative.com
+        </div>
+        <div class="ep-ps">P.S. — If you know an agent who should be in this community, send them to [FREEBIE LINK]. Let them start where you started. The guide is still free — always will be.</div>
+        <div class="ep-footer">
+          <div>© 2026 BrandLab Creative</div>
+          <div><a href="#" style="color:#00AFEF">Unsubscribe</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end email view -->
+
+</main>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function copyCard(btn) {
+  const pre = btn.closest('.copy-card').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function copyEmail(id) {
+  const el = document.getElementById(id);
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    const btn = el.closest('.email-detail').querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Email'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
